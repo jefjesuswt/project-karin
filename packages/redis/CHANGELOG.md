@@ -1,5 +1,13 @@
 # @project-karin/redis
 
+## 0.5.2
+
+### Patch Changes
+
+- 5c76655: Fix: Replace workspace protocol with explicit versions to resolve installation issues in consuming projects.
+- Updated dependencies [5c76655]
+  - @project-karin/core@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
