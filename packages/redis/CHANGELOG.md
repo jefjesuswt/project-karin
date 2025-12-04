@@ -1,5 +1,12 @@
 # @project-karin/redis
 
+## 0.5.4
+
+### Patch Changes
+
+- aa545f3: minor fixes to upstash and ioredis adapters
+  - @project-karin/core@0.5.4
+
 ## 0.5.3
 
 ### Patch Changes
