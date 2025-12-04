@@ -20,7 +20,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@project-karin/core": "^0.5.2",
+    "@project-karin/core": "^0.5.1",
+    "@upstash/redis": "^1.35.7",
     "ioredis": "^5.8.2"
   }
 }
