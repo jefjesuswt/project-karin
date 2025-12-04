@@ -14,7 +14,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@project-karin/core": "workspace:*",
+    "@project-karin/core": "^0.5.1",
     "hono": "^4.10.6"
   },
   "devDependencies": {

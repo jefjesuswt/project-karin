@@ -14,10 +14,10 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@project-karin/core": "workspace:*"
+    "@project-karin/core": "^0.5.1"
   },
   "dependencies": {
-    "@project-karin/core": "workspace:*",
+    "@project-karin/core": "^0.5.1",
     "@libsql/client": "^0.15.15",
     "drizzle-orm": "^0.44.7"
   },

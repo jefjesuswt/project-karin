@@ -20,7 +20,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@project-karin/core": "workspace:*",
+    "@project-karin/core": "^0.5.1",
     "ioredis": "^5.8.2"
   }
 }

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^8.1.0",
-    "@project-karin/core": "workspace:*",
+    "@project-karin/core": "^0.5.1",
     "openapi3-ts": "^4.5.0",
     "zod": "^4.1.13"
   }

@@ -16,7 +16,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "@project-karin/core": "workspace:*"
+    "@project-karin/core": "^0.5.1"
   },
   "description": "Authentication module for Karin inspired by NestJS Passport",
   "type": "module",
