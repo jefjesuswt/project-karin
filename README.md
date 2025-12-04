@@ -8,7 +8,7 @@
 
 Karin is a personal learning project exploring modern backend patterns in the Bun ecosystem. It draws inspiration from established frameworks like NestJS while experimenting with a module-less architecture optimized for Bun's performance characteristics.
 
-## ⚠️ Project Status: Beta (v1.1.0)
+## ⚠️ Project Status
 
 This is an **experimental learning project** and a work in progress. While functional, it's not yet battle-tested for production use.
 
