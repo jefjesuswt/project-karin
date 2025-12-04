@@ -1,0 +1,24 @@
+{
+  "name": "karin-js-monorepo",
+  "module": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "build": "bun scripts/build.ts",
+    "prepublishOnly": "bun run build"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@karin-js/mongoose": "workspace:*",
+    "@karin-js/redis": "workspace:*"
+  }
+}

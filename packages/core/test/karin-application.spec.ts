@@ -1,0 +1,53 @@
+import { describe, it, expect, mock, beforeEach, afterEach } from "bun:test";
+import { KarinApplication, type IHttpAdapter, type KarinPlugin } from "..";
+
+describe("KarinApplication", () => {
+  const mockAdapter = {
+    listen: mock(),
+    enableCors: mock(),
+  } as unknown as IHttpAdapter;
+
+  const originalLog = console.log;
+
+  beforeEach(() => {
+    console.log = mock(() => { });
+  });
+
+  afterEach(() => {
+    console.log = originalLog;
+  });
+
+  it("should register plugins correctly", () => {
+    const app = new KarinApplication(mockAdapter, process.cwd());
+
+    const mockPlugin: KarinPlugin = {
+      name: "TestPlugin",
+      install: mock(),
+    };
+
+    app.use(mockPlugin);
+
+    expect(mockPlugin.install).toHaveBeenCalledWith(app);
+  });
+
+  it("should execute onPluginInit lifecycle hook on initialization", async () => {
+    const app = new KarinApplication(mockAdapter, process.cwd());
+
+    const mockPlugin: KarinPlugin = {
+      name: "DBPlugin",
+      install: () => { },
+      onPluginInit: mock(async () => { }),
+    };
+
+    app.use(mockPlugin);
+    await app.init();
+
+    expect(mockPlugin.onPluginInit).toHaveBeenCalled();
+  });
+
+  it("should delegate enableCors to the adapter", () => {
+    const app = new KarinApplication(mockAdapter, process.cwd());
+    app.enableCors({ origin: "*" });
+    expect(mockAdapter.enableCors).toHaveBeenCalled();
+  });
+});

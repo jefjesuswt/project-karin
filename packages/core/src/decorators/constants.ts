@@ -1,0 +1,10 @@
+export const CONTROLLER_METADATA = Symbol("karin:controller");
+export const METHOD_METADATA = Symbol("karin:method");
+export const PATH_METADATA = Symbol("karin:path");
+export const PARAMS_METADATA = Symbol("karin:params");
+export const GUARDS_METADATA = Symbol("karin:guards");
+export const PIPES_METADATA = Symbol("karin:pipes");
+export const FILTER_METADATA = Symbol("karin:filters");
+export const FILTER_CATCH_EXCEPTIONS = Symbol("karin:filter-catch");
+export const INTERCEPTORS_METADATA = Symbol("karin:interceptors");
+export const FAST_ROUTE_METADATA = Symbol("karin:fast-route");

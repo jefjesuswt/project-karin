@@ -1,0 +1,99 @@
+import "reflect-metadata";
+import {
+  CONTROLLER_METADATA,
+  METHOD_METADATA,
+  PATH_METADATA,
+  PARAMS_METADATA,
+  GUARDS_METADATA,
+  PIPES_METADATA,
+  FILTER_METADATA,
+  INTERCEPTORS_METADATA,
+  FAST_ROUTE_METADATA,
+} from "../decorators/constants";
+import type { RouteParamMetadata } from "../decorators/params";
+import type {
+  CanActivate,
+  PipeTransform,
+  ExceptionFilter,
+  KarinInterceptor,
+  Type,
+} from "../interfaces";
+
+export interface RouteDefinition {
+  methodName: string;
+  httpMethod: string;
+  path: string;
+  fullPath: string;
+  guards: (CanActivate | Type<CanActivate>)[];
+  pipes: (PipeTransform | Type<PipeTransform>)[];
+  interceptors: (KarinInterceptor | Type<KarinInterceptor>)[];
+  filters: (ExceptionFilter | Type<ExceptionFilter>)[];
+  params: RouteParamMetadata[];
+  isFast: boolean;
+}
+
+export class MetadataScanner {
+  public scan(ControllerClass: Type<any>): RouteDefinition[] {
+    const proto = ControllerClass.prototype;
+    const prefix = Reflect.getMetadata(
+      CONTROLLER_METADATA,
+      ControllerClass
+    ) as string;
+
+    const classGuards =
+      Reflect.getMetadata(GUARDS_METADATA, ControllerClass) || [];
+    const classPipes =
+      Reflect.getMetadata(PIPES_METADATA, ControllerClass) || [];
+    const classInterceptors =
+      Reflect.getMetadata(INTERCEPTORS_METADATA, ControllerClass) || [];
+    const classFilters =
+      Reflect.getMetadata(FILTER_METADATA, ControllerClass) || [];
+
+    const routes: RouteDefinition[] = [];
+    const methodNames = Object.getOwnPropertyNames(proto).filter(
+      (m) => m !== "constructor"
+    );
+
+    for (const methodName of methodNames) {
+      const method = proto[methodName];
+      if (
+        typeof method !== "function" ||
+        !Reflect.hasMetadata(METHOD_METADATA, method)
+      ) {
+        continue;
+      }
+
+      const httpMethod = Reflect.getMetadata(METHOD_METADATA, method);
+      const routePath = Reflect.getMetadata(PATH_METADATA, method);
+
+      let fullPath = `/${prefix}/${routePath}`.replace(/\/+/g, "/");
+      if (fullPath.length > 1 && fullPath.endsWith("/"))
+        fullPath = fullPath.slice(0, -1);
+
+      const isFast = Reflect.getMetadata(FAST_ROUTE_METADATA, method) === true;
+
+      const methodGuards = Reflect.getMetadata(GUARDS_METADATA, method) || [];
+      const methodPipes = Reflect.getMetadata(PIPES_METADATA, method) || [];
+      const methodInterceptors =
+        Reflect.getMetadata(INTERCEPTORS_METADATA, method) || [];
+      const methodFilters = Reflect.getMetadata(FILTER_METADATA, method) || [];
+      const params =
+        Reflect.getMetadata(PARAMS_METADATA, proto, methodName) || [];
+
+      routes.push({
+        methodName,
+        httpMethod,
+        path: routePath,
+        fullPath,
+        guards: [...classGuards, ...methodGuards],
+        pipes: [...classPipes, ...methodPipes],
+        interceptors: [...classInterceptors, ...methodInterceptors],
+        filters: [...classFilters, ...methodFilters],
+        params,
+        isFast,
+      });
+    }
+
+    return routes;
+  }
+}

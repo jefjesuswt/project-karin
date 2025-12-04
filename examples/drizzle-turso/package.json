@@ -1,0 +1,24 @@
+{
+    "name": "example-drizzle-turso",
+    "private": true,
+    "version": "0.0.4",
+    "module": "src/main.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun run --watch src/main.ts",
+        "start": "bun run src/main.ts"
+    },
+    "dependencies": {
+        "@karin-js/config": "workspace:*",
+        "@karin-js/core": "workspace:*",
+        "@karin-js/drizzle": "workspace:*",
+        "@karin-js/platform-hono": "workspace:*",
+        "@libsql/client": "^0.14.0",
+        "drizzle-orm": "^0.36.4",
+        "hono": "^4.6.12",
+        "zod": "^4.1.13"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    }
+}
