@@ -1,5 +1,13 @@
 # @project-karin/drizzle
 
+## 0.5.3
+
+### Patch Changes
+
+- 60c503e: adpters on redis package
+- Updated dependencies [60c503e]
+  - @project-karin/core@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes
