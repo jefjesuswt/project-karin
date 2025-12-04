@@ -1,5 +1,11 @@
 # @project-karin/cli
 
+## 0.5.3
+
+### Patch Changes
+
+- 60c503e: adpters on redis package
+
 ## 0.5.2
 
 ### Patch Changes
