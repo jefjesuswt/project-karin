@@ -4,7 +4,9 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "rootDir": "./",
-    "declarationDir": "./dist"
   },
-  "include": ["src/**/*", "index.ts"]
+  "include": [
+    "src/**/*",
+    "index.ts"
+  ]
 }
