@@ -3,7 +3,7 @@ import { toPascalCase } from "../utils/formatting";
 export function generateDecoratorTemplate(name: string) {
   const className = toPascalCase(name);
 
-  return `import { createParamDecorator, type ExecutionContext } from "@karin-js/core";
+  return `import { createParamDecorator, type ExecutionContext } from "@project-karin/core";
 
 export const ${className} = createParamDecorator(
   (data: unknown, ctx: ExecutionContext) => {

@@ -1,6 +1,6 @@
 import { describe, it, expect, mock } from "bun:test";
 import { OAuth2Strategy } from "../src/oauth2.strategy";
-import { RedirectException } from "@karin-js/core";
+import { RedirectException } from "@project-karin/core";
 
 class TestOAuth2Strategy extends OAuth2Strategy {
     constructor() {

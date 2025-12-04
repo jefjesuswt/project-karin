@@ -1,4 +1,4 @@
-import { Schema, Prop } from "@karin-js/mongoose";
+import { Schema, Prop } from "@project-karin/mongoose";
 
 @Schema("Foxes")
 export class Foxes {

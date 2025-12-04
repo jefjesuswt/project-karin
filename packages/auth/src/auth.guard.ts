@@ -3,7 +3,7 @@ import {
     type ExecutionContext,
     UnauthorizedException,
     injectable
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { StrategyRegistry } from "./strategy.registry";
 
 import { IS_PUBLIC_KEY } from "./public.decorator";

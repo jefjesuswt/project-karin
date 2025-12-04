@@ -1,4 +1,4 @@
-import { UseInterceptors, type CallHandler, type ExecutionContext, type KarinInterceptor } from "@karin-js/core";
+import { UseInterceptors, type CallHandler, type ExecutionContext, type KarinInterceptor } from "@project-karin/core";
 import type { Context, Next } from "hono";
 
 class HonoMiddlewareWrapper implements KarinInterceptor {

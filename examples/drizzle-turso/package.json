@@ -9,10 +9,10 @@
         "start": "bun run src/main.ts"
     },
     "dependencies": {
-        "@karin-js/config": "workspace:*",
-        "@karin-js/core": "workspace:*",
-        "@karin-js/drizzle": "workspace:*",
-        "@karin-js/platform-hono": "workspace:*",
+        "@project-karin/config": "workspace:*",
+        "@project-karin/core": "workspace:*",
+        "@project-karin/drizzle": "workspace:*",
+        "@project-karin/platform-hono": "workspace:*",
         "@libsql/client": "^0.14.0",
         "drizzle-orm": "^0.36.4",
         "hono": "^4.6.12",

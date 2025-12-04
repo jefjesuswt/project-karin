@@ -1,5 +1,5 @@
 {
-  "name": "@karin-js/cli",
+  "name": "@project-karin/cli",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {

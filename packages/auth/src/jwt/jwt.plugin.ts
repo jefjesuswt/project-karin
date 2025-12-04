@@ -1,4 +1,4 @@
-import { type KarinPlugin, type KarinApplication, container } from "@karin-js/core";
+import { type KarinPlugin, type KarinApplication, container } from "@project-karin/core";
 import { JwtService, JWT_OPTIONS, type JwtModuleOptions } from "./jwt.service";
 
 export class JwtPlugin implements KarinPlugin {

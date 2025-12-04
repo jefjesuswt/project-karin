@@ -1,4 +1,4 @@
-import type { ExecutionContext } from "@karin-js/core";
+import type { ExecutionContext } from "@project-karin/core";
 
 export interface IAuthStrategy {
     name: string;

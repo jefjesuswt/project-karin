@@ -1,11 +1,11 @@
-# @karin-js/config
+# @project-karin/config
 
 Configuration management plugin for Karin-JS with environment variable loading and validation.
 
 ## Installation
 
 ```bash
-bun add @karin-js/config
+bun add @project-karin/config
 ```
 
 ## Overview
@@ -20,8 +20,8 @@ The Config plugin provides:
 ## Quick Start
 
 ```typescript
-import { KarinFactory } from "@karin-js/core";
-import { ConfigPlugin } from "@karin-js/config";
+import { KarinFactory } from "@project-karin/core";
+import { ConfigPlugin } from "@project-karin/config";
 
 const config = new ConfigPlugin({
   requiredKeys: ["DATABASE_URL", "PORT"],
@@ -98,8 +98,8 @@ const config = new ConfigPlugin({
 ## Usage in Services
 
 ```typescript
-import { Service } from "@karin-js/core";
-import { ConfigService } from "@karin-js/config";
+import { Service } from "@project-karin/core";
+import { ConfigService } from "@project-karin/config";
 
 @Service()
 export class DatabaseService {

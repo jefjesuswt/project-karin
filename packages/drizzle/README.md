@@ -1,11 +1,11 @@
-# @karin-js/drizzle
+# @project-karin/drizzle
 
 Drizzle ORM integration plugin for Karin-JS.
 
 ## Installation
 
 ```bash
-bun add @karin-js/drizzle drizzle-orm
+bun add @project-karin/drizzle drizzle-orm
 ```
 
 You will also need a driver, for example `postgres`, `mysql2`, or `@libsql/client`.
@@ -15,7 +15,7 @@ You will also need a driver, for example `postgres`, `mysql2`, or `@libsql/clien
 ### Basic Setup (e.g. with Turso/LibSQL)
 
 ```typescript
-import { DrizzlePlugin } from "@karin-js/drizzle";
+import { DrizzlePlugin } from "@project-karin/drizzle";
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
 
@@ -59,7 +59,7 @@ new DrizzlePlugin({
 Inject the database instance into your services.
 
 ```typescript
-import { InjectDrizzle } from "@karin-js/drizzle";
+import { InjectDrizzle } from "@project-karin/drizzle";
 import { LibSQLDatabase } from "drizzle-orm/libsql";
 import { users } from "./schema";
 

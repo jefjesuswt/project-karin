@@ -1,11 +1,11 @@
-# @karin-js/platform-hono
+# @project-karin/platform-hono
 
 Hono HTTP adapter for Karin-JS, optimized for Edge runtimes and serverless deployments.
 
 ## Installation
 
 ```bash
-bun add @karin-js/core @karin-js/platform-hono
+bun add @project-karin/core @project-karin/platform-hono
 ```
 
 ## Overview
@@ -19,8 +19,8 @@ The Hono adapter provides:
 ## Usage
 
 ```typescript
-import { KarinFactory } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
+import { KarinFactory } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
 
 const app = await KarinFactory.create(new HonoAdapter(), {
   scan: "./src/**/*.ts",
@@ -34,8 +34,8 @@ app.listen(3000);
 ### Cloudflare Workers
 
 ```typescript
-import { HonoAdapter } from "@karin-js/platform-hono";
-import { KarinFactory } from "@karin-js/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
+import { KarinFactory } from "@project-karin/core";
 import { AppController } from "./app.controller";
 
 const app = await KarinFactory.create(new HonoAdapter(), {
@@ -49,8 +49,8 @@ export default app.getHttpServer();
 ### Deno Deploy
 
 ```typescript
-import { HonoAdapter } from "npm:@karin-js/platform-hono";
-import { KarinFactory } from "npm:@karin-js/core";
+import { HonoAdapter } from "npm:@project-karin/platform-hono";
+import { KarinFactory } from "npm:@project-karin/core";
 
 const app = await KarinFactory.create(new HonoAdapter(), {
   scan: "./src/**/*.ts",

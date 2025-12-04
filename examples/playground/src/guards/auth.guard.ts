@@ -3,7 +3,7 @@ import {
   UnauthorizedException,
   type CanActivate,
   type ExecutionContext,
-} from "@karin-js/core";
+} from "@project-karin/core";
 
 export class AuthGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<boolean> {

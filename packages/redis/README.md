@@ -1,11 +1,11 @@
-# @karin-js/redis
+# @project-karin/redis
 
 Redis client integration plugin for Karin-JS using ioredis.
 
 ## Installation
 
 ```bash
-bun add @karin-js/redis ioredis
+bun add @project-karin/redis ioredis
 ```
 
 ## Overview
@@ -20,7 +20,7 @@ The Redis plugin provides:
 ## Quick Start
 
 ```typescript
-import { RedisPlugin, InjectRedis } from "@karin-js/redis";
+import { RedisPlugin, InjectRedis } from "@project-karin/redis";
 import type { Redis } from "ioredis";
 
 // Configure plugin

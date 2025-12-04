@@ -1,4 +1,4 @@
-import { Logger, type IHttpAdapter, BadRequestException } from "@karin-js/core";
+import { Logger, type IHttpAdapter, BadRequestException } from "@project-karin/core";
 import {
   H3,
   handleCors,

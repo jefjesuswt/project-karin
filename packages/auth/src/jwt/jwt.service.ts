@@ -1,5 +1,5 @@
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
-import { inject, Service } from "@karin-js/core";
+import { inject, Service } from "@project-karin/core";
 
 export const JWT_OPTIONS = "JWT_OPTIONS";
 

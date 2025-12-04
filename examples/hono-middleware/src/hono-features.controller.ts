@@ -1,5 +1,5 @@
-import { Controller, Get, Ctx, KarinExecutionContext } from "@karin-js/core";
-import { UseHono } from "@karin-js/platform-hono";
+import { Controller, Get, Ctx, KarinExecutionContext } from "@project-karin/core";
+import { UseHono } from "@project-karin/platform-hono";
 import { secureHeaders } from "hono/secure-headers";
 import { cache } from "hono/cache";
 import type { Context, Next } from "hono";

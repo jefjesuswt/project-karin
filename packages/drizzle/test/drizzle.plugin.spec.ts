@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach, mock } from "bun:test";
 import { DrizzlePlugin } from "../src/drizzle.plugin";
-import { container } from "@karin-js/core";
+import { container } from "@project-karin/core";
 import { DRIZZLE_DB } from "../src/decorators";
 import type { DrizzleAdapter } from "../src/adapter.interface";
 

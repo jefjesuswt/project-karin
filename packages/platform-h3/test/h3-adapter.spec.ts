@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from "bun:test";
 import { H3Adapter } from "../src/h3-adapter";
-import { BadRequestException } from "@karin-js/core";
+import { BadRequestException } from "@project-karin/core";
 
 describe("H3Adapter", () => {
   let adapter: H3Adapter;

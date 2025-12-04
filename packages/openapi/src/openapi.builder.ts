@@ -12,8 +12,8 @@ import {
   type RouteParamMetadata,
   type KarinApplication,
   type Type,
-} from "@karin-js/core";
-import { ZodValidationPipe } from "@karin-js/core";
+} from "@project-karin/core";
+import { ZodValidationPipe } from "@project-karin/core";
 import type { OpenAPIObject } from "openapi3-ts/oas30";
 
 export class OpenApiBuilder {

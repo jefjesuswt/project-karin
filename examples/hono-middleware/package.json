@@ -7,8 +7,8 @@
         "deploy": "wrangler deploy"
     },
     "dependencies": {
-        "@karin-js/core": "workspace:*",
-        "@karin-js/platform-hono": "workspace:*",
+        "@project-karin/core": "workspace:*",
+        "@project-karin/platform-hono": "workspace:*",
         "hono": "^4.10.6",
         "reflect-metadata": "^0.2.2"
     },

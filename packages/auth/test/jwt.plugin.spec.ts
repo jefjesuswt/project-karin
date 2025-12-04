@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "bun:test";
 import { JwtPlugin } from "../src/jwt/jwt.plugin";
 import { JwtService, JWT_OPTIONS } from "../src/jwt/jwt.service";
-import { container } from "@karin-js/core";
+import { container } from "@project-karin/core";
 
 describe("JwtPlugin", () => {
     beforeEach(() => {

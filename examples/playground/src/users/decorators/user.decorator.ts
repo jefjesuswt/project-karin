@@ -1,4 +1,4 @@
-import { createParamDecorator, type ExecutionContext } from "@karin-js/core";
+import { createParamDecorator, type ExecutionContext } from "@project-karin/core";
 
 export const User = createParamDecorator(
   (data: string, ctx: ExecutionContext) => {

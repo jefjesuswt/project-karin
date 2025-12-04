@@ -1,4 +1,4 @@
-import { inject } from "@karin-js/core";
+import { inject } from "@project-karin/core";
 
 export const DRIZZLE_DB = "DRIZZLE_DB";
 

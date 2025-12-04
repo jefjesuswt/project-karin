@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from "@karin-js/core";
+import { Controller, Get, Post, Body } from "@project-karin/core";
 import { ProductsService } from "./products.service";
 import type { CreateProductDto } from "./dto/create-product.dto";
 

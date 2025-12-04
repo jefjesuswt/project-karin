@@ -1,6 +1,6 @@
 import { PassportStrategy } from "./passport.strategy";
-import type { ExecutionContext } from "@karin-js/core";
-import { RedirectException } from "@karin-js/core";
+import type { ExecutionContext } from "@project-karin/core";
+import { RedirectException } from "@project-karin/core";
 
 export interface OAuth2StrategyOptions {
     authorizationURL: string;

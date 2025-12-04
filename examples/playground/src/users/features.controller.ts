@@ -8,7 +8,7 @@ import {
   Headers,
   UseGuards,
   ZodValidationPipe,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { AuthGuard } from "../guards/auth.guard";
 import { CreateUserSchema, type CreateUserDto } from "./dtos/create-user.dto";
 import { User } from "./decorators/user.decorator";

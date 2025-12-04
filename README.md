@@ -1,6 +1,6 @@
 # Karin 🦊
 
-[![NPM Version](https://img.shields.io/npm/v/@karin-js/core)](https://www.npmjs.com/package/@karin-js/core)
+[![NPM Version](https://img.shields.io/npm/v/@project-karin/core)](https://www.npmjs.com/package/@project-karin/core)
 [![Bun Version](https://img.shields.io/badge/bun-%3E%3D1.2.10-lightgrey?logo=bun)](https://bun.sh/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -155,7 +155,7 @@ The fastest way to get started is using the Karin CLI:
 
 ```bash
 # Install the CLI globally
-bun install -g @karin-js/cli
+bun install -g @project-karin/cli
 
 #To start a new project with Karin:
 karin new my-karin-app
@@ -188,7 +188,7 @@ cd my-karin-app
 bun init -y
 
 # Install Karin
-bun add @karin-js/core @karin-js/platform-hono
+bun add @project-karin/core @project-karin/platform-hono
 bun add -d typescript @types/bun
 
 # Enable decorators in tsconfig.json
@@ -206,7 +206,7 @@ bun add -d typescript @types/bun
 
 ```typescript
 // src/app.controller.ts
-import { Controller, Get } from "@karin-js/core";
+import { Controller, Get } from "@project-karin/core";
 
 @Controller("/")
 export class AppController {
@@ -220,8 +220,8 @@ export class AppController {
 ```typescript
 // src/main.ts
 
-import { KarinFactory } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
+import { KarinFactory } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
 
 async function bootstrap() {
   const app = await KarinFactory.create(new HonoAdapter(), {
@@ -252,7 +252,7 @@ Visit `http://localhost:3000` to see your API in action!
 Controllers handle incoming requests and return responses:
 
 ```typescript
-import { Controller, Get, Post, Body, Param } from "@karin-js/core";
+import { Controller, Get, Post, Body, Param } from "@project-karin/core";
 
 @Controller("/users")
 export class UsersController {
@@ -278,7 +278,7 @@ export class UsersController {
 Services encapsulate business logic and can be injected into controllers:
 
 ```typescript
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 
 @Service()
 export class UsersService {
@@ -303,7 +303,7 @@ export class UsersController {
 Guards control access to routes:
 
 ```typescript
-import { CanActivate, ExecutionContext } from "@karin-js/core";
+import { CanActivate, ExecutionContext } from "@project-karin/core";
 
 @Service()
 export class AuthGuard implements CanActivate {
@@ -325,7 +325,7 @@ export class AdminController {
 Pipes transform and validate input data:
 
 ```typescript
-import { PipeTransform, BadRequestException } from "@karin-js/core";
+import { PipeTransform, BadRequestException } from "@project-karin/core";
 import { z } from "zod";
 
 const CreateUserSchema = z.object({
@@ -355,7 +355,7 @@ create(@Body(ValidationPipe) body: any) {
 Filters handle errors and format responses:
 
 ```typescript
-import { Catch, ExceptionFilter, HttpException } from "@karin-js/core";
+import { Catch, ExceptionFilter, HttpException } from "@project-karin/core";
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -380,9 +380,9 @@ export class HttpExceptionFilter implements ExceptionFilter {
 Plugins extend framework functionality:
 
 ```typescript
-import { ConfigPlugin } from "@karin-js/config";
-import { MongoosePlugin } from "@karin-js/mongoose";
-import { OpenApiPlugin } from "@karin-js/openapi";
+import { ConfigPlugin } from "@project-karin/config";
+import { MongoosePlugin } from "@project-karin/mongoose";
+import { OpenApiPlugin } from "@project-karin/openapi";
 
 const config = new ConfigPlugin({
   requiredKeys: ["MONGO_URI", "PORT"],
@@ -408,20 +408,20 @@ Karin is organized as a monorepo with multiple packages:
 
 ### Core Packages
 
-- **[@karin-js/core](./packages/core)** - Core framework with DI, decorators, and routing
-- **[@karin-js/platform-hono](./packages/platform-hono)** - Hono HTTP adapter (Edge/serverless)
-- **[@karin-js/platform-h3](./packages/platform-h3)** - H3 HTTP adapter (maximum performance)
+- **[@project-karin/core](./packages/core)** - Core framework with DI, decorators, and routing
+- **[@project-karin/platform-hono](./packages/platform-hono)** - Hono HTTP adapter (Edge/serverless)
+- **[@project-karin/platform-h3](./packages/platform-h3)** - H3 HTTP adapter (maximum performance)
 
 ### Plugin Packages
 
-- **[@karin-js/config](./packages/config)** - Configuration management with validation
-- **[@karin-js/mongoose](./packages/mongoose)** - MongoDB integration with Mongoose
-- **[@karin-js/redis](./packages/redis)** - Redis client integration
-- **[@karin-js/openapi](./packages/openapi)** - OpenAPI/Swagger documentation
+- **[@project-karin/config](./packages/config)** - Configuration management with validation
+- **[@project-karin/mongoose](./packages/mongoose)** - MongoDB integration with Mongoose
+- **[@project-karin/redis](./packages/redis)** - Redis client integration
+- **[@project-karin/openapi](./packages/openapi)** - OpenAPI/Swagger documentation
 
 ### CLI Package
 
-- **[@karin-js/cli](./packages/cli)** - Project scaffolding and code generation
+- **[@project-karin/cli](./packages/cli)** - Project scaffolding and code generation
 
 ---
 

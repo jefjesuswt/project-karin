@@ -1,4 +1,4 @@
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 import { type CreateFoxesDto } from "./dtos/create-foxes.dto";
 import { type UpdateFoxesDto } from "./dtos/update-foxes.dto";
 

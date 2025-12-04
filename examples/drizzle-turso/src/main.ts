@@ -1,7 +1,7 @@
-import { KarinFactory } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
-import { DrizzlePlugin, LibSQLAdapter } from "@karin-js/drizzle";
-import { ConfigPlugin } from "@karin-js/config";
+import { KarinFactory } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
+import { DrizzlePlugin, LibSQLAdapter } from "@project-karin/drizzle";
+import { ConfigPlugin } from "@project-karin/config";
 
 import * as usersSchema from "./users/users.schema";
 import * as productsSchema from "./products/products.schema";

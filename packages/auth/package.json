@@ -1,5 +1,5 @@
 {
-  "name": "@karin-js/auth",
+  "name": "@project-karin/auth",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -16,7 +16,7 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "@karin-js/core": "^1.1.14"
+    "@project-karin/core": "workspace:*"
   },
   "description": "Authentication module for Karin inspired by NestJS Passport",
   "type": "module",

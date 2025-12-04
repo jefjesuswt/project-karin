@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from "bun:test";
 import { RedisPlugin } from "../src/redis.plugin";
-import { container, type KarinApplication } from "@karin-js/core";
+import { container, type KarinApplication } from "@project-karin/core";
 import { Redis } from "ioredis";
 import { REDIS_CLIENT_TOKEN } from "../src/decorators";
 

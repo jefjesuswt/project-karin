@@ -1,11 +1,11 @@
-# @karin-js/openapi
+# @project-karin/openapi
 
 OpenAPI/Swagger documentation plugin for Karin-JS.
 
 ## Installation
 
 ```bash
-bun add @karin-js/openapi
+bun add @project-karin/openapi
 ```
 
 ## Overview
@@ -20,7 +20,7 @@ The OpenAPI plugin provides:
 ## Quick Start
 
 ```typescript
-import { OpenApiPlugin } from "@karin-js/openapi";
+import { OpenApiPlugin } from "@project-karin/openapi";
 
 const app = await KarinFactory.create(adapter, {
   plugins: [
@@ -62,7 +62,7 @@ export class UsersController {
 Document request/response schemas:
 
 ```typescript
-import { ApiBody, ApiResponse } from "@karin-js/openapi";
+import { ApiBody, ApiResponse } from "@project-karin/openapi";
 import { z } from "zod";
 
 const CreateUserSchema = z.object({
@@ -91,7 +91,7 @@ export class UsersController {
 Add descriptions and tags:
 
 ```typescript
-import { ApiTags, ApiOperation } from "@karin-js/openapi";
+import { ApiTags, ApiOperation } from "@project-karin/openapi";
 
 @Controller("/users")
 @ApiTags("Users")
@@ -167,8 +167,8 @@ Once configured, access your API documentation at:
 ## Example
 
 ```typescript
-import { Controller, Get, Post, Body, Param } from "@karin-js/core";
-import { ApiTags, ApiOperation, ApiBody, ApiResponse, ApiParam } from "@karin-js/openapi";
+import { Controller, Get, Post, Body, Param } from "@project-karin/core";
+import { ApiTags, ApiOperation, ApiBody, ApiResponse, ApiParam } from "@project-karin/openapi";
 import { z } from "zod";
 
 const UserSchema = z.object({

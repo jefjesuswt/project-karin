@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from "bun:test";
 import { OpenApiPlugin } from "../src/openapi.plugin";
-import { Controller, Get } from "@karin-js/core";
+import { Controller, Get } from "@project-karin/core";
 
 @Controller("test")
 class TestController {

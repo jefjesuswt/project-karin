@@ -18,7 +18,7 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@karin-js/mongoose": "workspace:*",
-    "@karin-js/redis": "workspace:*"
+    "@project-karin/mongoose": "workspace:*",
+    "@project-karin/redis": "workspace:*"
   }
 }

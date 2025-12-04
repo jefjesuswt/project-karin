@@ -5,30 +5,30 @@
 ### Patch Changes
 
 - Updated dependencies [e50dac1]
-  - @karin-js/config@1.0.2
-  - @karin-js/core@1.0.2
-  - @karin-js/mongoose@1.0.2
-  - @karin-js/platform-hono@1.0.2
+  - @project-karin/config@1.0.2
+  - @project-karin/core@1.0.2
+  - @project-karin/mongoose@1.0.2
+  - @project-karin/platform-hono@1.0.2
 
 ## 0.7.3
 
 ### Patch Changes
 
 - Updated dependencies [0b4caa9]
-  - @karin-js/config@1.0.1
-  - @karin-js/core@1.0.1
-  - @karin-js/mongoose@1.0.1
-  - @karin-js/platform-hono@1.0.1
+  - @project-karin/config@1.0.1
+  - @project-karin/core@1.0.1
+  - @project-karin/mongoose@1.0.1
+  - @project-karin/platform-hono@1.0.1
 
 ## 0.7.2
 
 ### Patch Changes
 
 - Updated dependencies [712a625]
-  - @karin-js/config@1.0.0
-  - @karin-js/core@1.0.0
-  - @karin-js/mongoose@1.0.0
-  - @karin-js/platform-hono@1.0.0
+  - @project-karin/config@1.0.0
+  - @project-karin/core@1.0.0
+  - @project-karin/mongoose@1.0.0
+  - @project-karin/platform-hono@1.0.0
 
 ## 0.7.1
 
@@ -36,10 +36,10 @@
 
 - 26ab21e: minor fixes on metadata cache
 - Updated dependencies [26ab21e]
-  - @karin-js/core@0.7.1
-  - @karin-js/config@0.7.1
-  - @karin-js/mongoose@0.7.1
-  - @karin-js/platform-hono@0.7.1
+  - @project-karin/core@0.7.1
+  - @project-karin/config@0.7.1
+  - @project-karin/mongoose@0.7.1
+  - @project-karin/platform-hono@0.7.1
 
 ## 0.7.0
 
@@ -50,17 +50,17 @@
 ### Patch Changes
 
 - Updated dependencies [0eca513]
-  - @karin-js/config@0.7.0
-  - @karin-js/core@0.7.0
-  - @karin-js/mongoose@0.7.0
-  - @karin-js/platform-hono@0.7.0
+  - @project-karin/config@0.7.0
+  - @project-karin/core@0.7.0
+  - @project-karin/mongoose@0.7.0
+  - @project-karin/platform-hono@0.7.0
 
 ## 0.6.2
 
 ### Patch Changes
 
 - Updated dependencies [d75962d]
-  - @karin-js/core@0.6.3
-  - @karin-js/config@0.6.3
-  - @karin-js/mongoose@0.6.3
-  - @karin-js/platform-hono@0.6.3
+  - @project-karin/core@0.6.3
+  - @project-karin/config@0.6.3
+  - @project-karin/mongoose@0.6.3
+  - @project-karin/platform-hono@0.6.3

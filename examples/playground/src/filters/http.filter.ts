@@ -3,7 +3,7 @@ import {
   HttpException,
   type ExceptionFilter,
   type ArgumentsHost,
-} from "@karin-js/core";
+} from "@project-karin/core";
 
 @Catch(HttpException)
 export class HttpErrorFilter implements ExceptionFilter {

@@ -1,4 +1,4 @@
-import { Logger, type IHttpAdapter } from "@karin-js/core";
+import { Logger, type IHttpAdapter } from "@project-karin/core";
 import type { Context } from "hono";
 import { Hono } from "hono";
 import { cors } from "hono/cors";

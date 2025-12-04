@@ -3,7 +3,7 @@ import {
     type ExceptionFilter,
     type ArgumentsHost,
     Logger,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { Error as MongooseError } from "mongoose";
 
 /**

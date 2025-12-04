@@ -1,6 +1,6 @@
 import "reflect-metadata";
-import { Controller, Fast, Get, KarinFactory, Service } from "@karin-js/core";
-import { H3Adapter } from "@karin-js/platform-h3";
+import { Controller, Fast, Get, KarinFactory, Service } from "@project-karin/core";
+import { H3Adapter } from "@project-karin/platform-h3";
 
 @Service()
 class BenchService {

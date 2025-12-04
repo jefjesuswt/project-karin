@@ -4,7 +4,7 @@ import {
   Logger,
   container,
   isServerless,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import mongoose, { type ConnectOptions, type Mongoose } from "mongoose";
 import { SCHEMA_METADATA, SCHEMAS_REGISTRY } from "./utils/decorators";
 import { SchemaFactory } from "./utils/schema.factory";

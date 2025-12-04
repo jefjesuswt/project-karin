@@ -16,7 +16,7 @@ for (const pkg of packages) {
   const pkgPath = join(packagesDir, pkg);
   const tsconfigPath = join(pkgPath, "tsconfig.json");
 
-  console.log(`   - Building @karin-js/${pkg}...`);
+  console.log(`   - Building @project-karin/${pkg}...`);
 
   // ✅ CRÍTICO: Usar --declarationDir para forzar output correcto
   const proc = Bun.spawnSync(

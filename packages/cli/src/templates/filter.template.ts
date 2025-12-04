@@ -3,7 +3,7 @@ import { toPascalCase } from "../utils/formatting";
 export function generateFilterTemplate(name: string) {
   const className = toPascalCase(name);
 
-  return `import { Catch, type ExceptionFilter, type ArgumentsHost, HttpException } from "@karin-js/core";
+  return `import { Catch, type ExceptionFilter, type ArgumentsHost, HttpException } from "@project-karin/core";
 
 @Catch(HttpException)
 export class ${className}Filter implements ExceptionFilter {

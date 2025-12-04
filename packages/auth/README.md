@@ -1,4 +1,4 @@
-# @karin-js/auth
+# @project-karin/auth
 
 A robust authentication module for the **Karin** framework, inspired by Passport.js and NestJS Auth. It provides a flexible strategy-based authentication system, supporting JWT, Local, OAuth2, and more.
 js but optimized for modern TypeScript environments.
@@ -14,7 +14,7 @@ js but optimized for modern TypeScript environments.
 ## Installation
 
 ```bash
-bun add @karin-js/auth
+bun add @project-karin/auth
 ```
 
 ## JWT Authentication
@@ -22,8 +22,8 @@ bun add @karin-js/auth
 ### 1. Register the Plugin
 
 ```typescript
-import { KarinFactory } from "@karin-js/core";
-import { JwtPlugin } from "@karin-js/auth";
+import { KarinFactory } from "@project-karin/core";
+import { JwtPlugin } from "@project-karin/auth";
 
 const app = await KarinFactory.create(adapter, {
   plugins: [
@@ -40,9 +40,9 @@ const app = await KarinFactory.create(adapter, {
 Implement a strategy to validate the token.
 
 ```typescript
-import { PassportStrategy } from "@karin-js/auth";
-import { UnauthorizedException } from "@karin-js/core";
-import { JwtService } from "@karin-js/auth";
+import { PassportStrategy } from "@project-karin/auth";
+import { UnauthorizedException } from "@project-karin/core";
+import { JwtService } from "@project-karin/auth";
 
 @Service()
 export class JwtStrategy extends PassportStrategy {
@@ -74,8 +74,8 @@ export class JwtStrategy extends PassportStrategy {
 Use the `AuthGuard` to protect your controllers or methods.
 
 ```typescript
-import { Controller, Get, UseGuards } from "@karin-js/core";
-import { AuthGuard } from "@karin-js/auth";
+import { Controller, Get, UseGuards } from "@project-karin/core";
+import { AuthGuard } from "@project-karin/auth";
 
 @Controller("/profile")
 @UseGuards(AuthGuard("jwt"))
@@ -92,7 +92,7 @@ export class ProfileController {
 Extend the `OAuth2Strategy` to implement providers.
 
 ```typescript
-import { OAuth2Strategy } from "@karin-js/auth";
+import { OAuth2Strategy } from "@project-karin/auth";
 
 export class GoogleStrategy extends OAuth2Strategy {
   constructor() {
@@ -118,7 +118,7 @@ export class GoogleStrategy extends OAuth2Strategy {
 You can mark specific routes as public to bypass global guards.
 
 ```typescript
-import { Public } from "@karin-js/auth";
+import { Public } from "@project-karin/auth";
 
 @Controller("/auth")
 export class AuthController {

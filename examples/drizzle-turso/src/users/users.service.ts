@@ -1,8 +1,8 @@
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 import type { LibSQLDatabase } from "drizzle-orm/libsql";
 import * as schema from "./users.schema";
 import type { CreateUserDto } from "./dto/create-user.dto";
-import { InjectDrizzle } from "@karin-js/drizzle";
+import { InjectDrizzle } from "@project-karin/drizzle";
 
 @Service()
 export class UsersService {

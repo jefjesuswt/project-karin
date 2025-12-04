@@ -1,16 +1,16 @@
-# @karin-js/core
+# @project-karin/core
 
 The core package of Karin-JS framework, providing the foundation for building decorator-based backend applications with Bun.
 
 ## Installation
 
 ```bash
-bun add @karin-js/core
+bun add @project-karin/core
 ```
 
 ## Overview
 
-`@karin-js/core` provides:
+`@project-karin/core` provides:
 
 - **Decorator-based routing** (`@Controller`, `@Get`, `@Post`, etc.)
 - **Dependency Injection** system with TypeScript decorators
@@ -25,8 +25,8 @@ bun add @karin-js/core
 
 ```typescript
 
-import { KarinFactory, Controller, Get } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
+import { KarinFactory, Controller, Get } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
 
 @Controller("/")
 class AppController {
@@ -50,7 +50,7 @@ app.listen(3000);
 Controllers handle HTTP requests and define routes:
 
 ```typescript
-import { Controller, Get, Post, Put, Delete, Param, Body } from "@karin-js/core";
+import { Controller, Get, Post, Put, Delete, Param, Body } from "@project-karin/core";
 
 @Controller("/users")
 export class UsersController {
@@ -86,7 +86,7 @@ export class UsersController {
 Services encapsulate business logic and can be injected:
 
 ```typescript
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 
 @Service()
 export class UsersService {
@@ -117,7 +117,7 @@ export class UsersController {
 Guards control access to routes:
 
 ```typescript
-import { CanActivate, ExecutionContext, UnauthorizedException } from "@karin-js/core";
+import { CanActivate, ExecutionContext, UnauthorizedException } from "@project-karin/core";
 
 @Service()
 export class AuthGuard implements CanActivate {
@@ -153,7 +153,7 @@ getProfile() {
 Pipes transform and validate input:
 
 ```typescript
-import { PipeTransform, BadRequestException } from "@karin-js/core";
+import { PipeTransform, BadRequestException } from "@project-karin/core";
 
 @Service()
 export class ParseIntPipe implements PipeTransform {
@@ -177,7 +177,7 @@ findOne(@Param("id", ParseIntPipe) id: number) {
 Interceptors can modify requests and responses:
 
 ```typescript
-import { KarinInterceptor, ExecutionContext, CallHandler } from "@karin-js/core";
+import { KarinInterceptor, ExecutionContext, CallHandler } from "@project-karin/core";
 
 @Service()
 export class LoggingInterceptor implements KarinInterceptor {
@@ -203,7 +203,7 @@ export class UsersController {
 Filters handle errors and format responses:
 
 ```typescript
-import { Catch, ExceptionFilter, ArgumentsHost, HttpException } from "@karin-js/core";
+import { Catch, ExceptionFilter, ArgumentsHost, HttpException } from "@project-karin/core";
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -240,7 +240,7 @@ const app = await KarinFactory.create(adapter, {
 Create your own parameter decorators:
 
 ```typescript
-import { createParamDecorator, ExecutionContext } from "@karin-js/core";
+import { createParamDecorator, ExecutionContext } from "@project-karin/core";
 
 export const User = createParamDecorator((data: unknown, ctx: ExecutionContext) => {
   const request = ctx.switchToHttp().getRequest();
@@ -258,7 +258,7 @@ getProfile(@User() user: any) {
 Bypass guards/pipes/interceptors for maximum performance:
 
 ```typescript
-import { Fast } from "@karin-js/core";
+import { Fast } from "@project-karin/core";
 
 @Get("/health")
 @Fast()
@@ -272,7 +272,7 @@ health() {
 Extend the framework with plugins:
 
 ```typescript
-import { KarinPlugin, KarinApplication } from "@karin-js/core";
+import { KarinPlugin, KarinApplication } from "@project-karin/core";
 
 export class MyPlugin implements KarinPlugin {
   name = "MyPlugin";

@@ -6,7 +6,7 @@ import {
   Delete,
   Body,
   Param,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { DogsService } from "./dogs.service";
 import type { CreateDogsDto } from "./dtos/create-dogs.dto";
 import type { UpdateDogsDto } from "./dtos/update-dogs.dto";

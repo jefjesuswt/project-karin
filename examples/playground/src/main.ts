@@ -1,9 +1,9 @@
-import { KarinFactory, Logger } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
-import { ConfigPlugin } from "@karin-js/config";
-import { MongoosePlugin } from "@karin-js/mongoose";
+import { KarinFactory, Logger } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
+import { ConfigPlugin } from "@project-karin/config";
+import { MongoosePlugin } from "@project-karin/mongoose";
 import { OpenApiPlugin } from "../../../packages/openapi";
-import { RedisPlugin } from "@karin-js/redis";
+import { RedisPlugin } from "@project-karin/redis";
 import { HttpErrorFilter } from "./filters/http.filter";
 import { DogsController } from "./dogs/dogs.controller";
 import { FoxesController } from "./foxes/foxes.controller";

@@ -4,7 +4,7 @@ import {
   type KarinPlugin,
   type KarinApplication,
   Logger,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { OpenApiBuilder } from "./openapi.builder";
 import { generateSwaggerHtml } from "./swagger-ui";
 

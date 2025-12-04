@@ -4,7 +4,7 @@ import {
     Logger,
     container,
     isServerless,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { DRIZZLE_DB } from "./decorators";
 import type { DrizzleAdapter } from "./adapter.interface";
 

@@ -1,11 +1,11 @@
-# @karin-js/mongoose
+# @project-karin/mongoose
 
 MongoDB integration plugin for Karin-JS using Mongoose ODM with enterprise-grade error handling.
 
 ## Installation
 
 ```bash
-bun add @karin-js/mongoose mongoose
+bun add @project-karin/mongoose mongoose
 ```
 
 ## Overview
@@ -20,7 +20,7 @@ The Mongoose plugin provides:
 ## Quick Start
 
 ```typescript
-import { Schema, Prop, InjectModel } from "@karin-js/mongoose";
+import { Schema, Prop, InjectModel } from "@project-karin/mongoose";
 import { Model } from "mongoose";
 
 // Define a schema
@@ -68,7 +68,7 @@ const app = await KarinFactory.create(adapter, {
 Define MongoDB schemas with TypeScript decorators:
 
 ```typescript
-import { Schema, Prop } from "@karin-js/mongoose";
+import { Schema, Prop } from "@project-karin/mongoose";
 
 @Schema({ timestamps: true })
 class Product {
@@ -91,7 +91,7 @@ class Product {
 Inject models into services:
 
 ```typescript
-import { InjectModel } from "@karin-js/mongoose";
+import { InjectModel } from "@project-karin/mongoose";
 import { Model } from "mongoose";
 
 @Service()

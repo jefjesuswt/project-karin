@@ -1,5 +1,5 @@
 {
-  "name": "@karin-js/drizzle",
+  "name": "@project-karin/drizzle",
   "version": "0.5.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,10 +14,10 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@karin-js/core": "^1.1.14"
+    "@project-karin/core": "workspace:*"
   },
   "dependencies": {
-    "@karin-js/core": "^1.1.14",
+    "@project-karin/core": "workspace:*",
     "@libsql/client": "^0.15.15",
     "drizzle-orm": "^0.44.7"
   },

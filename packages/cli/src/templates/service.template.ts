@@ -4,7 +4,7 @@ export function generateServiceTemplate(name: string, withCrud = false) {
   const className = toPascalCase(name);
 
   if (withCrud) {
-    return `import { Service } from "@karin-js/core";
+    return `import { Service } from "@project-karin/core";
 import { type Create${className}Dto } from "./dtos/create-${name}.dto";
 import { type Update${className}Dto } from "./dtos/update-${name}.dto";
 
@@ -35,7 +35,7 @@ export class ${className}Service {
 `;
   }
 
-  return `import { Service } from "@karin-js/core";
+  return `import { Service } from "@project-karin/core";
 
 @Service()
 export class ${className}Service {

@@ -1,4 +1,4 @@
-import { inject } from "@karin-js/core";
+import { inject } from "@project-karin/core";
 
 export const REDIS_CLIENT_TOKEN = "KARIN_REDIS_CLIENT";
 

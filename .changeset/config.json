@@ -4,7 +4,7 @@
   "commit": false,
   "fixed": [
     [
-      "@karin-js/*"
+      "@project-karin/*"
     ]
   ],
   "access": "public",

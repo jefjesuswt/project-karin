@@ -4,7 +4,7 @@ import {
   Logger,
   container,
   isServerless,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { Redis } from "ioredis";
 import { REDIS_CLIENT_TOKEN } from "./decorators";
 import type { KarinRedisConfig } from "./redis.options";

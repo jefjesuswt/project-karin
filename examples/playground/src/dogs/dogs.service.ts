@@ -1,5 +1,5 @@
-import { Service } from "@karin-js/core";
-import { ConfigService } from "@karin-js/config";
+import { Service } from "@project-karin/core";
+import { ConfigService } from "@project-karin/config";
 import { type CreateDogsDto } from "./dtos/create-dogs.dto";
 import { type UpdateDogsDto } from "./dtos/update-dogs.dto";
 

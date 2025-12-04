@@ -1,4 +1,4 @@
-import { inject, singleton } from "@karin-js/core";
+import { inject, singleton } from "@project-karin/core";
 import "reflect-metadata";
 
 export const SCHEMAS_REGISTRY = new Set<Function>();

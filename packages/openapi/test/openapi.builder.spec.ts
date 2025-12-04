@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach } from "bun:test";
 import { OpenApiBuilder } from "../src/openapi.builder";
-import { Controller, Get, Post, Body, Param } from "@karin-js/core";
+import { Controller, Get, Post, Body, Param } from "@project-karin/core";
 
 @Controller("users")
 class UsersController {

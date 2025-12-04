@@ -6,7 +6,7 @@ export function generateControllerTemplate(name: string, withCrud = false) {
   const paramName = "id";
 
   if (withCrud) {
-    return `import { Controller, Get, Post, Put, Delete, Body, Param } from "@karin-js/core";
+    return `import { Controller, Get, Post, Put, Delete, Body, Param } from "@project-karin/core";
 import { ${className}Service } from "./${routeName}.service";
 import { type Create${className}Dto } from "./dtos/create-${routeName}.dto";
 import { type Update${className}Dto } from "./dtos/update-${routeName}.dto";
@@ -43,7 +43,7 @@ export class ${className}Controller {
 `;
   }
 
-  return `import { Controller, Get } from "@karin-js/core";
+  return `import { Controller, Get } from "@project-karin/core";
 
 @Controller("/${routeName}")
 export class ${className}Controller {

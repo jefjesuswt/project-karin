@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 import { InjectRedis, REDIS_CLIENT_TOKEN } from "../src/decorators";
-import { container, injectable } from "@karin-js/core";
+import { container, injectable } from "@project-karin/core";
 
 describe("Redis Decorators", () => {
     it("should provide the correct token", () => {

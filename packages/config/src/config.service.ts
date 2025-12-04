@@ -1,4 +1,4 @@
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 
 @Service()
 export class ConfigService<T = any> {

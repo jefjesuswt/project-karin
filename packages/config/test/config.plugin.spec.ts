@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, mock, spyOn } from "bun:test";
 import { ConfigPlugin } from "../src/config.plugin";
 import { ConfigService } from "../src/config.service";
-import { container, type KarinApplication } from "@karin-js/core";
+import { container, type KarinApplication } from "@project-karin/core";
 import { z } from "zod";
 import * as fs from "fs";
 import * as path from "path";

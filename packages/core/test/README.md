@@ -2,7 +2,7 @@
 
 ## Overview
 
-Comprehensive test suite for `@karin-js/core` covering all functionality including new optimizations and features added in recent sessions.
+Comprehensive test suite for `@project-karin/core` covering all functionality including new optimizations and features added in recent sessions.
 
 ## Test Coverage
 

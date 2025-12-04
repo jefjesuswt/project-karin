@@ -3,7 +3,7 @@ import { toPascalCase } from "../utils/formatting";
 export function generateEntityTemplate(name: string) {
   const className = toPascalCase(name);
 
-  return `import { Schema, Prop } from "@karin-js/mongoose";
+  return `import { Schema, Prop } from "@project-karin/mongoose";
 
 @Schema("${className}")
 export class ${className} {

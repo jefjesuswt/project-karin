@@ -3,7 +3,7 @@ import {
   type KarinApplication,
   Logger,
   container,
-} from "@karin-js/core";
+} from "@project-karin/core";
 import { config } from "dotenv";
 import { ZodError, type ZodType } from "zod";
 import { ConfigService } from "./config.service";

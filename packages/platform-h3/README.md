@@ -1,11 +1,11 @@
-# @karin-js/platform-h3
+# @project-karin/platform-h3
 
 H3 HTTP adapter for Karin-JS, optimized for maximum performance on Bun.
 
 ## Installation
 
 ```bash
-bun add @karin-js/core @karin-js/platform-h3
+bun add @project-karin/core @project-karin/platform-h3
 ```
 
 ## Overview
@@ -19,8 +19,8 @@ The H3 adapter provides:
 ## Usage
 
 ```typescript
-import { KarinFactory } from "@karin-js/core";
-import { H3Adapter } from "@karin-js/platform-h3";
+import { KarinFactory } from "@project-karin/core";
+import { H3Adapter } from "@project-karin/platform-h3";
 
 const app = await KarinFactory.create(new H3Adapter(), {
   scan: "./src/**/*.ts",

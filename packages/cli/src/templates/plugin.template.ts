@@ -3,7 +3,7 @@ import { toPascalCase } from "../utils/formatting";
 export function generatePluginTemplate(name: string) {
   const className = toPascalCase(name);
 
-  return `import { type KarinPlugin, type KarinApplication, Logger } from "@karin-js/core";
+  return `import { type KarinPlugin, type KarinApplication, Logger } from "@project-karin/core";
 
 export class ${className}Plugin implements KarinPlugin {
   name = "${className}Plugin";

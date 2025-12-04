@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from "bun:test";
 import { MongoosePlugin } from "../src/mongoose.plugin";
-import { container, type KarinApplication } from "@karin-js/core";
+import { container, type KarinApplication } from "@project-karin/core";
 import mongoose from "mongoose";
 import { Schema, Prop, SCHEMAS_REGISTRY } from "../src/utils/decorators";
 

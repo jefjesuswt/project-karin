@@ -1,5 +1,5 @@
 {
-  "name": "@karin-js/core",
+  "name": "@project-karin/core",
   "version": "0.5.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

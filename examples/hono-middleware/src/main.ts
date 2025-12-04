@@ -1,6 +1,6 @@
 import "reflect-metadata";
-import { KarinFactory } from "@karin-js/core";
-import { HonoAdapter } from "@karin-js/platform-hono";
+import { KarinFactory } from "@project-karin/core";
+import { HonoAdapter } from "@project-karin/platform-hono";
 import { logger } from "hono/logger";
 import { HonoFeaturesController } from "./hono-features.controller";
 

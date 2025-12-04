@@ -20,7 +20,7 @@ export async function updateKarinDependencies(projectPath: string) {
     if (!deps) return;
 
     for (const [name, version] of Object.entries(deps)) {
-      if (name.startsWith("@karin-js/")) {
+      if (name.startsWith("@project-karin/")) {
         const latest = await getLatestVersion(name);
 
         if (latest !== "latest" && !version.includes(latest)) {

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from "@karin-js/core";
+import { Controller, Get, Post, Put, Delete, Body, Param } from "@project-karin/core";
 import { FoxesService } from "./foxes.service";
 import { type CreateFoxesDto } from "./dtos/create-foxes.dto";
 import { type UpdateFoxesDto } from "./dtos/update-foxes.dto";

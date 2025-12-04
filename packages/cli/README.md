@@ -1,4 +1,4 @@
-# @karin-js/cli
+# @project-karin/cli
 
 Command-line interface for scaffolding and managing Karin-JS projects.
 
@@ -6,10 +6,10 @@ Command-line interface for scaffolding and managing Karin-JS projects.
 
 ```bash
 # Global installation (recommended)
-bun install -g @karin-js/cli
+bun install -g @project-karin/cli
 
 # Or use with bunx (no installation needed)
-bunx @karin-js/cli
+bunx @project-karin/cli
 ```
 
 ## Commands
@@ -130,7 +130,7 @@ Displays:
 
 ```typescript
 // src/users/users.controller.ts
-import { Controller, Get, Post, Put, Delete, Body, Param } from "@karin-js/core";
+import { Controller, Get, Post, Put, Delete, Body, Param } from "@project-karin/core";
 import { UsersService } from "./users.service";
 
 @Controller("/users")
@@ -168,7 +168,7 @@ export class UsersController {
 
 ```typescript
 // src/users/users.service.ts
-import { Service } from "@karin-js/core";
+import { Service } from "@project-karin/core";
 
 @Service()
 export class UsersService {
@@ -198,7 +198,7 @@ export class UsersService {
 
 ```typescript
 // src/guards/auth.guard.ts
-import { CanActivate, ExecutionContext, UnauthorizedException } from "@karin-js/core";
+import { CanActivate, ExecutionContext, UnauthorizedException } from "@project-karin/core";
 
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
@@ -218,7 +218,7 @@ export class AuthGuard implements CanActivate {
 
 ```typescript
 // src/filters/http.filter.ts
-import { Catch, ExceptionFilter, ArgumentsHost, HttpException } from "@karin-js/core";
+import { Catch, ExceptionFilter, ArgumentsHost, HttpException } from "@project-karin/core";
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {

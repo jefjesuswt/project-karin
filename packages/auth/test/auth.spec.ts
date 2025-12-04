@@ -3,7 +3,7 @@ import { AuthGuard } from "../src/auth.guard";
 import { PassportStrategy } from "../src/passport.strategy";
 import { User } from "../src/decorators";
 import { StrategyRegistry } from "../src/strategy.registry";
-import { container } from "@karin-js/core";
+import { container } from "@project-karin/core";
 
 // Mock Strategy
 class MockStrategy extends PassportStrategy {
