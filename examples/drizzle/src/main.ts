@@ -1,6 +1,6 @@
 import { KarinFactory } from "@project-karin/core";
 import { HonoAdapter } from "@project-karin/platform-hono";
-import { DrizzlePlugin, LibSQLAdapter } from "@project-karin/drizzle";
+import { DrizzlePlugin, MysqlAdapter } from "@project-karin/drizzle";
 import { ConfigPlugin } from "@project-karin/config";
 
 import * as usersSchema from "./users/users.schema";
@@ -11,14 +11,14 @@ import { ProductsController } from "./products/products.controller";
 
 async function bootstrap() {
     const config = new ConfigPlugin({
-        requiredKeys: ["TURSO_DATABASE_URL", "TURSO_AUTH_TOKEN"],
+        requiredKeys: ["MARIADB_DATABASE_URL"],
     });
 
     const drizz = new DrizzlePlugin({
-        adapter: new LibSQLAdapter({
-            url: () => config.get("TURSO_DATABASE_URL"),
-            authToken: () => config.get("TURSO_AUTH_TOKEN"),
-        }, { schema: [usersSchema, productsSchema] }),
+        adapter: new MysqlAdapter(
+            () => config.get("MARIADB_DATABASE_URL"),
+            { schema: [usersSchema, productsSchema] }
+        ),
     });
 
     const app = await KarinFactory.create(new HonoAdapter(), {

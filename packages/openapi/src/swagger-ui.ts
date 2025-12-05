@@ -20,7 +20,7 @@ export function generateSwaggerHtml(options: SwaggerUiOptions): string {
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>${title}</title>
-      <meta name="description" content="Swagger UI for Karin-JS API" />
+      <meta name="description" content="Swagger UI for Karin API" />
       <link rel="stylesheet" href="${cssUrl}" />
       <style>
         html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }

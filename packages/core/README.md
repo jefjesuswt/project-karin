@@ -1,6 +1,6 @@
 # @project-karin/core
 
-The core package of Karin-JS framework, providing the foundation for building decorator-based backend applications with Bun.
+The core package of Karin framework, providing the foundation for building decorator-based backend applications with Bun.
 
 ## Installation
 

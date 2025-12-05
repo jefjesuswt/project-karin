@@ -28,7 +28,7 @@ async function bootstrap() {
 
   const openapi = new OpenApiPlugin({
     path: "/docs",
-    title: "Karin-JS API",
+    title: "Karin API",
     version: "1.0.0",
   });
 
@@ -55,7 +55,7 @@ async function bootstrap() {
 
   app.listen(port, () => {
     logger.log(
-      `🦊 Karin-JS Server running on http://localhost:${port}`
+      `🦊 Karin API running on http://localhost:${port}`
     );
   });
 }

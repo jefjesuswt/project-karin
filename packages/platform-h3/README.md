@@ -1,6 +1,6 @@
 # @project-karin/platform-h3
 
-H3 HTTP adapter for Karin-JS, optimized for maximum performance on Bun.
+H3 HTTP adapter for Karin, optimized for maximum performance on Bun.
 
 ## Installation
 

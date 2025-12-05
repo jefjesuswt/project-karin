@@ -12,6 +12,7 @@ export interface RedisPluginOptions<Client = any> {
   adapter: RedisAdapter<Client>;
   name?: string;
   serverless?: boolean;
+  failureStrategy?: "fail" | "warn";
 }
 
 export class RedisPlugin<Client = any> implements KarinPlugin {
@@ -24,9 +25,12 @@ export class RedisPlugin<Client = any> implements KarinPlugin {
     this.serverless = options.serverless ?? isServerless();
   }
 
-  install(app: KarinApplication) {}
+  install(app: KarinApplication) { }
 
   async onPluginInit() {
+    if (this.client) {
+      return;
+    }
     this.logger.log("Initializing connection...");
     try {
       this.client = await this.options.adapter.connect();
@@ -35,6 +39,10 @@ export class RedisPlugin<Client = any> implements KarinPlugin {
 
       this.logger.log("✅ Connection established");
     } catch (error: any) {
+      if (this.options.failureStrategy === "warn") {
+        this.logger.warn(`⚠️ Connection failed: ${error.message}. App continuing without Redis.`);
+        return;
+      }
       this.logger.error(`❌ Connection failed: ${error.message}`);
       throw error;
     }

@@ -1,6 +1,6 @@
 # @project-karin/config
 
-Configuration management plugin for Karin-JS with environment variable loading and validation.
+Configuration management plugin for Karin with environment variable loading and validation.
 
 ## Installation
 

@@ -27,7 +27,7 @@ describe("HonoAdapter", () => {
 
   describe("Response Normalization", () => {
     it("should automatically convert objects to JSON", async () => {
-      const data = { framework: "Karin-JS" };
+      const data = { framework: "Karin" };
       adapter.get("/json", () => data);
 
       const req = new Request("http://localhost/json");

@@ -135,7 +135,7 @@ export class KarinApplication {
         } else {
           const displayHost = host ?? "localhost";
           this.logger.log(
-            `🦊 Karin-JS Server running on http://${displayHost}:${port}`
+            `🦊 Karin Server running on http://${displayHost}:${port}`
           );
         }
       })

@@ -1,6 +1,6 @@
 # @project-karin/drizzle
 
-Drizzle ORM integration plugin for Karin-JS.
+Drizzle ORM integration plugin for Karin.
 
 ## Installation
 

@@ -208,4 +208,59 @@ export class KarinFactory {
       return "/";
     }
   }
+
+  /**
+   * Universal handler for Serverless/Edge environments.
+   * Normalizes the environment so the application works consistently everywhere.
+   */
+  static serverless(
+    adapter: IHttpAdapter,
+    options: KarinFactoryOptions = {}
+  ) {
+    let app: KarinApplication | undefined;
+
+    return {
+      fetch: async (request: Request, env?: any, ctx?: any) => {
+        // 1. Singleton (Warm Start)
+        if (!app) {
+
+          // --- ENVIRONMENT NORMALIZATION BLOCK ---
+          // We don't ask "Is this Cloudflare?", we ask "Do we have variables?"
+
+          // A. If process global doesn't exist (e.g. pure Cloudflare), create it
+          if (typeof process === "undefined") {
+            (globalThis as any).process = { env: {} };
+          }
+
+          // B. Deno Detection (Global Runtime)
+          // Deno has vars in Deno.env, copy them to process.env
+          // @ts-ignore
+          if (typeof Deno !== "undefined" && typeof Deno.env?.toObject === "function") {
+            // @ts-ignore
+            Object.assign(process.env, Deno.env.toObject());
+          }
+
+          // C. Argument Detection (Request Injection)
+          // Cloudflare and Vercel Edge pass vars in the 2nd argument 'env'
+          // Verify it's an object and NOT socket info (like in Deno.serve)
+          if (env && typeof env === "object" && !env.remoteAddr) {
+            Object.assign(process.env, env);
+          }
+          // ---------------------------------------------
+
+          try {
+            // Force scan: false for serverless environments as filesystem scanning is usually not available or slow
+            const serverlessOptions = { ...options, scan: false };
+            app = await KarinFactory.create(adapter, serverlessOptions);
+            await app.init();
+          } catch (error) {
+            console.error("❌ [Karin] Boot failed:", error);
+            return new Response("Internal Server Error", { status: 500 });
+          }
+        }
+
+        return (app.getHttpAdapter() as any).fetch(request, env, ctx);
+      },
+    };
+  }
 }

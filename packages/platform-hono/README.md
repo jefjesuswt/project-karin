@@ -1,6 +1,6 @@
 # @project-karin/platform-hono
 
-Hono HTTP adapter for Karin-JS, optimized for Edge runtimes and serverless deployments.
+Hono HTTP adapter for Karin, optimized for Edge runtimes and serverless deployments.
 
 ## Installation
 

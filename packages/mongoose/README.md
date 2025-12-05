@@ -1,6 +1,6 @@
 # @project-karin/mongoose
 
-MongoDB integration plugin for Karin-JS using Mongoose ODM with enterprise-grade error handling.
+MongoDB integration plugin for Karin using Mongoose ODM with enterprise-grade error handling.
 
 ## Installation
 

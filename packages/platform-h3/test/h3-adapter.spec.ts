@@ -106,7 +106,7 @@ describe("H3Adapter", () => {
       const req = new Request("http://localhost/cors", {
         method: "OPTIONS",
         headers: {
-          Origin: "https://karin-js.com",
+          Origin: "https://karin.com",
           "Access-Control-Request-Method": "GET",
         },
       });

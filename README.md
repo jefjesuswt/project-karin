@@ -503,8 +503,8 @@ All contributions are appreciated!
 
 ```bash
 # Clone the repository
-git clone https://github.com/jefjesuswt/karin-js
-cd karin-js
+git clone https://github.com/jefjesuswt/project-karin
+cd project-karin
 
 # Install dependencies
 bun install

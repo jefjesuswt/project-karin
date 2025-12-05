@@ -1,5 +1,5 @@
 {
-  "name": "karin-js-monorepo",
+  "name": "project-karin-monorepo",
   "module": "index.ts",
   "type": "module",
   "workspaces": [

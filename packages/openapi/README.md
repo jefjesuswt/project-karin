@@ -1,6 +1,6 @@
 # @project-karin/openapi
 
-OpenAPI/Swagger documentation plugin for Karin-JS.
+OpenAPI/Swagger documentation plugin for Karin.
 
 ## Installation
 

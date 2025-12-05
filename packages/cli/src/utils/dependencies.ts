@@ -45,7 +45,7 @@ export async function updateKarinDependencies(projectPath: string) {
     writeFileSync(pkgPath, JSON.stringify(pkg, null, 2));
     console.log(
       pc.green(
-        `   Updated ${updatedCount} Karin-JS packages to latest stable version.`
+        `   Updated ${updatedCount} Karin packages to latest stable version.`
       )
     );
   }

@@ -1,20 +1,21 @@
 import "reflect-metadata";
 import { describe, it, expect, beforeEach } from "bun:test";
 import { OpenApiBuilder } from "../src/openapi.builder";
-import { Controller, Get, Post, Body, Param } from "@project-karin/core";
+import { Controller, Get, Post, Body, Param, ZodValidationPipe } from "@project-karin/core";
+import { z } from "zod";
 
 @Controller("users")
 class UsersController {
   @Get("list")
-  getUsers() {}
+  getUsers() { }
 
   @Post("create")
   createUser(
     @Body(new ZodValidationPipe(z.object({ name: z.string() }))) body: any
-  ) {}
+  ) { }
 
   @Get(":id")
-  getUser(@Param("id") id: string) {}
+  getUser(@Param("id") id: string) { }
 }
 
 describe("OpenApiBuilder", () => {

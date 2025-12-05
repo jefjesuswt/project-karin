@@ -23,10 +23,10 @@ const cli = cac("karin");
 const TEMPLATE_OWNER = "jefjesuswt";
 
 cli
-  .command("new [name]", "Create a new Karin-JS project")
+  .command("new [name]", "Create a new Karin project")
   .action(async (name) => {
     console.clear();
-    intro(pc.bgCyan(pc.black(" 🦊 Karin-JS Creator ")));
+    intro(pc.bgCyan(pc.black(" 🦊 Karin Creator ")));
 
     if (!name) {
       const namePrompt = await text({
@@ -187,7 +187,7 @@ cli
       ].filter(Boolean);
 
       note(nextSteps.join("\n"), "Next steps:");
-      outro(`Enjoy building with ${pc.cyan("Karin-JS")}! 🦊`);
+      outro(`Enjoy building with ${pc.cyan("Karin")}! 🦊`);
     } catch (error: any) {
       s.stop("❌ Failed to create project");
       console.error(pc.red(error.message));
@@ -226,7 +226,7 @@ cli
   });
 
 cli.command("doctor", "Check project health").action(() => {
-  console.log(pc.cyan("\n🚑 Karin-JS Doctor\n"));
+  console.log(pc.cyan("\n🚑 Karin Doctor\n"));
 
   const tsconfigPath = join(process.cwd(), "tsconfig.json");
 
@@ -271,7 +271,7 @@ cli.command("doctor", "Check project health").action(() => {
 });
 
 cli.command("info", "Display project details").action(() => {
-  console.log(pc.bold(pc.cyan(`\n🦊 Karin-JS CLI v${version}\n`)));
+  console.log(pc.bold(pc.cyan(`\n🦊 Karin CLI v${version}\n`)));
   console.log(pc.green("  System:"));
   console.log(`    OS: ${process.platform} ${process.arch}`);
   console.log(`    Bun: ${Bun.version}`);

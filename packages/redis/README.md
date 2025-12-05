@@ -1,6 +1,6 @@
 # @project-karin/redis
 
-Redis client integration plugin for Karin-JS using ioredis.
+Redis client integration plugin for Karin using ioredis.
 
 ## Installation
 

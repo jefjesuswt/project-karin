@@ -9,6 +9,6 @@ export function findSrcDir(cwd: string): string {
   }
 
   throw new Error(
-    "Could not find 'src' folder. Please run this command from the root of your Karin-JS project."
+    "Could not find 'src' folder. Please run this command from the root of your Karin project."
   );
 }

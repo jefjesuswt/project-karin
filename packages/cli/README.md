@@ -1,6 +1,6 @@
 # @project-karin/cli
 
-Command-line interface for scaffolding and managing Karin-JS projects.
+Command-line interface for scaffolding and managing Karin projects.
 
 ## Installation
 
@@ -16,7 +16,7 @@ bunx @project-karin/cli
 
 ### Create New Project
 
-The `new` command creates a new Karin-JS project with an interactive setup:
+The `new` command creates a new Karin project with an interactive setup:
 
 ```bash
 # Interactive mode (recommended)
