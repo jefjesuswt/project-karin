@@ -1,23 +1,41 @@
+
 import { Service } from "@project-karin/core";
-import type { MySql2Database } from "drizzle-orm/mysql2";
+import type { LibSQLDatabase } from "drizzle-orm/libsql";
 import * as schema from "./users.schema";
 import type { CreateUserDto } from "./dto/create-user.dto";
 import { InjectDrizzle } from "@project-karin/drizzle";
+import { InjectRedis } from "@project-karin/redis";
+import type { Redis } from "@upstash/redis";
 
 @Service()
 export class UsersService {
     constructor(
-        @InjectDrizzle() private readonly db: MySql2Database<typeof schema>
+        @InjectDrizzle() private readonly db: LibSQLDatabase<typeof schema>,
+        @InjectRedis() private readonly redis: Redis
     ) { }
 
     async findAll() {
-        return this.db.select().from(schema.users);
+        // Try cache first
+        const cached = await this.redis.get("users:all");
+        if (cached) {
+            return { source: "cache", data: cached };
+        }
+
+        const users = await this.db.select().from(schema.users);
+
+        // Cache for 60 seconds
+        await this.redis.set("users:all", JSON.stringify(users), { ex: 60 });
+
+        return { source: "database", data: users };
     }
 
     async create(data: CreateUserDto) {
-        const [result] = await this.db.insert(schema.users).values(data);
-        // In MySQL, we can't easily get the inserted row back in one query without extra steps or specific driver support.
-        // For this example, we'll just return the insert result which contains insertId.
-        return { id: result.insertId, ...data };
+        const result = await this.db.insert(schema.users).values(data).returning();
+
+        // Invalidate cache
+        await this.redis.del("users:all");
+
+        return result[0];
     }
 }
+

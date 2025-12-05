@@ -25,9 +25,7 @@ export class RedisPlugin<Client = any> implements KarinPlugin {
     this.serverless = options.serverless ?? isServerless();
   }
 
-  install(app: KarinApplication) { }
-
-  async onPluginInit() {
+  async install(app: KarinApplication) {
     if (this.client) {
       return;
     }
@@ -46,6 +44,10 @@ export class RedisPlugin<Client = any> implements KarinPlugin {
       this.logger.error(`❌ Connection failed: ${error.message}`);
       throw error;
     }
+  }
+
+  async onPluginInit() {
+    // Connection is established in install()
   }
 
   async onPluginDestroy() {

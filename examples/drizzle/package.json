@@ -15,6 +15,7 @@
         "@project-karin/core": "workspace:*",
         "@project-karin/drizzle": "workspace:*",
         "@project-karin/platform-hono": "workspace:*",
+        "@project-karin/redis": "workspace:*",
         "@types/pg": "^8.15.6",
         "drizzle-orm": "^0.36.4",
         "hono": "^4.6.12",

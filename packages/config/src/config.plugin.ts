@@ -7,8 +7,23 @@ import {
 import { config } from "dotenv";
 import { ZodError, type ZodType } from "zod";
 import { ConfigService } from "./config.service";
-import { join } from "path";
-import { existsSync } from "fs";
+
+// Helper to safely import Node.js built-ins
+// The bundler will keep these as external imports
+let pathJoin: typeof import("path").join | undefined;
+let fsExistsSync: typeof import("fs").existsSync | undefined;
+
+try {
+  // These imports will be kept as external by the bundler
+  // They'll work in Node.js/Bun but fail gracefully in edge runtimes
+  // Top-level await is supported in ES modules.
+  const path = await import("path");
+  const fs = await import("fs");
+  pathJoin = path.join;
+  fsExistsSync = fs.existsSync;
+} catch {
+  // Running in edge runtime - Node.js modules not available
+}
 
 export interface ConfigPluginOptions<T = any, K extends string = string> {
   /**
@@ -45,28 +60,39 @@ export class ConfigPlugin<T = any> implements KarinPlugin {
     // 3. Priority: Fallback to Node.js/Bun process.env + .env file
     else {
       // Load .env file if not disabled (implicit check, logic preserved from original)
-      const envPath = this.options.envFilePath
-        ? this.options.envFilePath
-        : join(app.getRootPath(), ".env");
+      // Only attempt to load .env file if we have Node.js file system APIs
 
-      if (existsSync(envPath)) {
-        const originalLog = console.log;
-        try {
-          console.log = () => { };
-          const result = config({ path: envPath });
-          if (result.error) {
-            throw result.error;
+      if (pathJoin && fsExistsSync) {
+        const envPath = this.options.envFilePath
+          ? this.options.envFilePath
+          : pathJoin(app.getRootPath(), ".env");
+
+        if (fsExistsSync(envPath)) {
+          const originalLog = console.log;
+          try {
+            console.log = () => { };
+            const result = config({ path: envPath });
+            if (result.error) {
+              throw result.error;
+            }
+          } catch (err) {
+            this.logger.warn(
+              `Could not load .env file: ${(err as Error).message}`
+            );
+          } finally {
+            console.log = originalLog;
           }
-        } catch (err) {
-          this.logger.warn(
-            `Could not load .env file: ${(err as Error).message}`
-          );
-        } finally {
-          console.log = originalLog;
+        } else {
+          if (this.options.required && typeof process !== "undefined" && process.env?.NODE_ENV !== "production") {
+            this.logger.warn(`⚠️ .env file not found at ${envPath}`);
+          }
         }
       } else {
-        if (this.options.required && process.env.NODE_ENV !== "production") {
-          this.logger.warn(`⚠️ .env file not found at ${envPath}`);
+        // Running in edge runtime - .env file loading not supported
+        if (this.options.required) {
+          this.logger.warn(
+            "⚠️ Running in edge runtime - .env file loading not supported. Pass env explicitly via ConfigPlugin options."
+          );
         }
       }
 
