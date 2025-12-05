@@ -1,5 +1,21 @@
 # @project-karin/platform-hono
 
+## 1.0.0
+
+### Minor Changes
+
+- f2ec848: feat: universal serverless support & full SQL adapters
+
+  - **Core**: Added `KarinFactory.serverless()` for universal environment hydration.
+  - **Drizzle**: Added `PostgresAdapter`, `MysqlAdapter`, and `NeonAdapter`.
+  - **Redis**: Refactored to use Adapter pattern.
+  - **CLI**: Renamed project to "Karin" and improved templates.
+
+### Patch Changes
+
+- Updated dependencies [f2ec848]
+  - @project-karin/core@1.0.0
+
 ## 0.5.4
 
 ### Patch Changes

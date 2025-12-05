@@ -1,6 +1,6 @@
 {
   "name": "@project-karin/drizzle",
-  "version": "0.5.4",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -14,12 +14,12 @@
   },
   "type": "module",
   "peerDependencies": {
-    "@project-karin/core": "^0.5.4"
+    "@project-karin/core": "^1.0.0"
   },
   "dependencies": {
     "@libsql/client": "^0.15.15",
     "@neondatabase/serverless": "^1.0.2",
-    "@project-karin/core": "^0.5.4",
+    "@project-karin/core": "^1.0.0",
     "@types/pg": "^8.15.6",
     "drizzle-orm": "^0.44.7",
     "mysql2": "^3.15.3",

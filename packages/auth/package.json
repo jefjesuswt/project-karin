@@ -11,12 +11,12 @@
       "import": "./dist/index.js"
     }
   },
-  "version": "0.5.4",
+  "version": "1.0.0",
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "@project-karin/core": "^0.5.4"
+    "@project-karin/core": "^1.0.0"
   },
   "description": "Authentication module for Karin inspired by NestJS Passport",
   "type": "module",
