@@ -9,7 +9,7 @@
     }
   },
   "type": "module",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "bin": {
     "karin": "./dist/karin.js"
   },

@@ -1,5 +1,12 @@
 # @project-karin/platform-hono
 
+## 0.5.6
+
+### Patch Changes
+
+- Updated dependencies [adb9948]
+  - @project-karin/core@0.5.6
+
 ## 0.5.5
 
 ### Patch Changes
