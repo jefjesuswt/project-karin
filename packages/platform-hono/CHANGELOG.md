@@ -1,5 +1,11 @@
 # @project-karin/platform-hono
 
+## 0.5.9
+
+### Patch Changes
+
+- @project-karin/core@0.5.9
+
 ## 0.5.8
 
 ### Patch Changes
