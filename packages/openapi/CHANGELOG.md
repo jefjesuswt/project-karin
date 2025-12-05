@@ -1,5 +1,13 @@
 # @project-karin/openapi
 
+## 0.5.8
+
+### Patch Changes
+
+- 4703df5: Fixed build target to use `"browser"` instead of `"node"` for universal runtime compatibility. This ensures packages work correctly in Cloudflare Workers, Deno, Node.js, and other edge runtimes by avoiding Node.js-specific APIs like `createRequire`.
+- Updated dependencies [4703df5]
+  - @project-karin/core@0.5.8
+
 ## 0.5.7
 
 ### Patch Changes
