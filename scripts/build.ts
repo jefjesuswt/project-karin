@@ -54,7 +54,7 @@ for (const pkg of packages) {
     entrypoints: [join(pkgPath, "index.ts")],
     outdir: join(pkgPath, "dist"),
     target: "bun",
-    external: dependencies,
+    external: ["*"],
     format: "esm",
   });
 
