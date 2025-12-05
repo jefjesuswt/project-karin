@@ -1,14 +1,14 @@
 ---
-"@project-karin/platform-hono": minor
-"@project-karin/platform-h3": minor
-"@project-karin/mongoose": minor
-"@project-karin/drizzle": minor
-"@project-karin/openapi": minor
-"@project-karin/config": minor
-"@project-karin/redis": minor
-"@project-karin/core": minor
-"@project-karin/auth": minor
-"@project-karin/cli": minor
+"@project-karin/platform-hono": patch
+"@project-karin/platform-h3": patch
+"@project-karin/mongoose": patch
+"@project-karin/drizzle": patch
+"@project-karin/openapi": patch
+"@project-karin/config": patch
+"@project-karin/redis": patch
+"@project-karin/core": patch
+"@project-karin/auth": patch
+"@project-karin/cli": patch
 ---
 
 feat: universal serverless support & full SQL adapters
