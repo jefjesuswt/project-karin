@@ -20,7 +20,7 @@ import { updateKarinDependencies } from "./utils/dependencies";
 const version = "0.0.1";
 const cli = cac("karin");
 
-const TEMPLATE_OWNER = "jefjesuswt";
+const GITHUB_REPO = "jefjesuswt/project-karin";
 
 cli
   .command("new [name]", "Create a new Karin project")
@@ -150,7 +150,8 @@ cli
     const targetDir = join(process.cwd(), name);
 
     try {
-      const templateSource = `github:${TEMPLATE_OWNER}/karin-template-${templateSuffix}`;
+      // Download from GitHub repo's templates folder
+      const templateSource = `github:${GITHUB_REPO}/templates/${templateSuffix}`;
 
       await downloadTemplate(templateSource, {
         dir: targetDir,
@@ -205,6 +206,25 @@ cli
   .alias("g")
   .option("-d, --dry-run", "Report actions without creating files")
   .action(async (type, name, options) => {
+    // Map abbreviations to full type names
+    const typeAliases: Record<string, string> = {
+      co: "controller",
+      c: "controller",
+      s: "service",
+      srv: "service",
+      e: "entity",
+      ent: "entity",
+      g: "guard",
+      f: "filter",
+      r: "resource",
+      res: "resource",
+      p: "plugin",
+      d: "decorator",
+      dec: "decorator",
+    };
+
+    const resolvedType = typeAliases[type.toLowerCase()] || type;
+
     if (!name) {
       const namePrompt = await text({
         message: "What is the name of the element?",
@@ -218,7 +238,7 @@ cli
     const generator = new GeneratorService(process.cwd(), options.dryRun);
 
     try {
-      await generator.generate(type, name);
+      await generator.generate(resolvedType, name);
     } catch (error: any) {
       console.error(pc.red(`❌ Error: ${error.message}`));
       process.exit(1);

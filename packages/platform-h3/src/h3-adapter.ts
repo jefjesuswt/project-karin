@@ -6,7 +6,6 @@ import {
   getQuery,
   getRouterParams,
   type H3Event,
-  setResponseStatus,
 } from "h3";
 
 export class H3Adapter implements IHttpAdapter<H3Event> {
@@ -20,7 +19,7 @@ export class H3Adapter implements IHttpAdapter<H3Event> {
   }
 
   public get fetch(): (request: Request) => any {
-    return this.app.fetch;
+    return this.app.fetch.bind(this.app);
   }
 
   get(path: string, handler: (ctx: H3Event) => void) {

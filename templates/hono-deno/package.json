@@ -1,0 +1,21 @@
+{
+  "name": "karin-template-hono",
+  "version": "0.0.1",
+  "description": "Starter template for Karin with Hono",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/main.ts",
+    "start": "bun run src/main.ts"
+  },
+  "dependencies": {
+    "@project-karin/core": "^0.5.5",
+    "@project-karin/platform-hono": "^0.5.5",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
