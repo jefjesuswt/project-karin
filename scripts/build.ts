@@ -53,9 +53,11 @@ for (const pkg of packages) {
   const result = await Bun.build({
     entrypoints: [join(pkgPath, "index.ts")],
     outdir: join(pkgPath, "dist"),
-    target: "bun",
-    external: ["*"],
+    target: "node",
+    external: dependencies,
     format: "esm",
+    minify: false,
+    sourcemap: "none",
   });
 
   if (!result.success) {
