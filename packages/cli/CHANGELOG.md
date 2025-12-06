@@ -1,5 +1,11 @@
 # @project-karin/cli
 
+## 0.5.10
+
+### Patch Changes
+
+- 0a80f35: Fix ZodValidationPipe to correctly receive metatype for @ZodDto validation and update documentation.
+
 ## 0.5.9
 
 ## 0.5.8
