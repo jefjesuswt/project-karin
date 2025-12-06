@@ -17,6 +17,7 @@ export interface RouteParamMetadata {
   data?: any;
   pipes?: (PipeTransform | Type<PipeTransform>)[];
   factory?: (data: any, context: ExecutionContext) => any;
+  metatype?: any;
 }
 
 // Factory for creating custom parameter decorators (e.g. @User())
@@ -62,6 +63,9 @@ const createNativeParamDecorator = (type: ParamType) => {
       const existingParameters: RouteParamMetadata[] =
         Reflect.getMetadata(PARAMS_METADATA, target, propertyKey) || [];
 
+      const paramTypes = Reflect.getMetadata("design:paramtypes", target, propertyKey);
+      const metatype = paramTypes ? paramTypes[parameterIndex] : undefined;
+
       let data: string | undefined;
       const allPipes = [...pipes];
 
@@ -77,6 +81,7 @@ const createNativeParamDecorator = (type: ParamType) => {
         type,
         data,
         pipes: allPipes,
+        metatype,
       });
 
       Reflect.defineMetadata(

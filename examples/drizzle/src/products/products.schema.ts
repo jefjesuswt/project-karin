@@ -1,8 +1,8 @@
-import { mysqlTable, int, varchar, text } from "drizzle-orm/mysql-core";
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 
-export const products = mysqlTable("products", {
-    id: int("id").primaryKey().autoincrement(),
-    name: varchar("name", { length: 255 }).notNull(),
-    price: int("price").notNull(),
+export const products = sqliteTable("products", {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    name: text("name").notNull(),
+    price: integer("price").notNull(),
     description: text("description"),
 });

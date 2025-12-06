@@ -5,11 +5,11 @@ export function generateCreateDtoTemplate(name: string) {
 
   return `import { z } from "zod";
 
-export const ${className}Schema = z.object({
+export const ${className}Dto = z.object({
   name: z.string().min(1, "Name is required"),
 
 });
 
-export type ${className}Dto = z.infer<typeof ${className}Schema>;
+export type ${className}Dto = z.infer<typeof ${className}Dto>;
 `;
 }

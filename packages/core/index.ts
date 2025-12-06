@@ -9,8 +9,10 @@ export * from "./src/interfaces";
 export { KarinExecutionContext } from "./src/context/execution-context";
 
 export * from "./src/exceptions/http.exception";
+export * from "./src/exceptions/base-exception.filter";
 
 export * from "./src/pipes/zod-validation.pipe";
+export * from "./src/pipes/zod-dto.decorator";
 export * from "./src/logger";
 
 export {

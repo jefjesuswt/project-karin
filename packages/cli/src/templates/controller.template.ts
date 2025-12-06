@@ -6,14 +6,14 @@ export function generateControllerTemplate(name: string, withCrud = false) {
   const paramName = "id";
 
   if (withCrud) {
-    return `import { Controller, Get, Post, Put, Delete, Body, Param } from "@project-karin/core";
+    return `import { Controller, Get, Post, Put, Delete, Body, Param, inject } from "@project-karin/core";
 import { ${className}Service } from "./${routeName}.service";
 import { type Create${className}Dto } from "./dtos/create-${routeName}.dto";
 import { type Update${className}Dto } from "./dtos/update-${routeName}.dto";
 
 @Controller("/${routeName}")
 export class ${className}Controller {
-  constructor(private readonly service: ${className}Service) {}
+  constructor(@inject(${className}Service) private readonly service: ${className}Service) {}
 
   @Post("/")
   create(@Body() body: Create${className}Dto) {
@@ -43,7 +43,7 @@ export class ${className}Controller {
 `;
   }
 
-  return `import { Controller, Get } from "@project-karin/core";
+  return `import { Controller, Get, inject } from "@project-karin/core";
 
 @Controller("/${routeName}")
 export class ${className}Controller {

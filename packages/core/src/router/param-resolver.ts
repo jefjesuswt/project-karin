@@ -73,6 +73,7 @@ export class ParamsResolver {
           value = await pipe.transform(value, {
             type: metaType,
             data: typeof param.data === "string" ? param.data : undefined,
+            metatype: param.metatype,
           });
         }
       }

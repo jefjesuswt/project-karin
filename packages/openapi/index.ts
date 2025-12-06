@@ -1,1 +1,2 @@
-export { OpenApiPlugin, type OpenApiPluginOptions } from "./src/openapi.plugin";
+export * from "./src";
+export * from "./src/zod-openapi";

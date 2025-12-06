@@ -1,4 +1,4 @@
-import { KarinFactory } from "@project-karin/core";
+import { KarinFactory, ZodValidationPipe } from "@project-karin/core";
 import { HonoAdapter } from "@project-karin/platform-hono";
 import { DrizzlePlugin, LibSQLAdapter } from "@project-karin/drizzle";
 import { ConfigPlugin } from "@project-karin/config";
@@ -35,6 +35,7 @@ async function bootstrap() {
     const app = await KarinFactory.create(new HonoAdapter(), {
         plugins: [config, redis, drizzle],
         controllers: [UsersController, ProductsController],
+        globalPipes: [new ZodValidationPipe()],
     });
 
     app.listen(3000);

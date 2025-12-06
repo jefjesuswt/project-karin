@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ZodDto } from "@project-karin/core";
 
 export const CreateUserSchema = z.object({
     name: z.string(),
@@ -6,4 +7,10 @@ export const CreateUserSchema = z.object({
     password: z.string().min(6),
 });
 
-export type CreateUserDto = z.infer<typeof CreateUserSchema>;
+@ZodDto(CreateUserSchema)
+export class CreateUserDto {
+    name!: string;
+    email!: string;
+    password!: string;
+}
+

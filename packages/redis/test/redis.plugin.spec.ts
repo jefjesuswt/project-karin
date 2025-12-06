@@ -77,8 +77,7 @@ describe("RedisPlugin", () => {
     it("should initialize with string config", async () => {
         const adapter = new IoRedisAdapter("redis://localhost:6379");
         const plugin = new RedisPlugin({ adapter });
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN);
         expect(client).toBeDefined();
@@ -87,16 +86,6 @@ describe("RedisPlugin", () => {
     });
 
     it("should initialize with object config (url + options)", async () => {
-        // IoRedisAdapter supports passing options directly. 
-        // We simulate the "url + options" behavior by passing a config object that IoRedisAdapter understands.
-        // However, IoRedisAdapter logic for object config is:
-        // if string -> url
-        // if object -> options
-        // It doesn't explicitly support { url, options } wrapper unless we change IoRedisAdapter.
-        // But the previous test "should initialize with object config (url + options)" implies that was supported.
-        // Given we are fixing tests for the NEW implementation, we should test what IoRedisAdapter supports.
-        // Or we can just test that passing options works.
-
         const adapter = new IoRedisAdapter({
             host: "localhost",
             port: 6379,
@@ -104,8 +93,7 @@ describe("RedisPlugin", () => {
         });
 
         const plugin = new RedisPlugin({ adapter });
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN) as any;
         expect(client).toBeDefined();
@@ -115,8 +103,7 @@ describe("RedisPlugin", () => {
     it("should initialize with direct RedisOptions", async () => {
         const adapter = new IoRedisAdapter({ host: "localhost", port: 6380 });
         const plugin = new RedisPlugin({ adapter });
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN) as any;
         expect(client).toBeDefined();
@@ -128,8 +115,7 @@ describe("RedisPlugin", () => {
         const adapter = new IoRedisAdapter("redis://localhost:6379");
         const plugin = new RedisPlugin({ adapter });
 
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN) as any;
         expect(client.status).toBe("ready");
@@ -141,14 +127,13 @@ describe("RedisPlugin", () => {
             adapter,
             failureStrategy: "fail"
         });
-        plugin.install(appMock);
 
         const loggerErrorSpy = spyOn((plugin as any).logger, "error").mockImplementation(() => { });
 
         // Mock adapter.connect to throw
         adapter.connect = mock(() => Promise.reject(new Error("Connection refused")));
 
-        expect(plugin.onPluginInit()).rejects.toThrow("Connection refused");
+        await expect(plugin.install(appMock)).rejects.toThrow("Connection refused");
 
         expect(loggerErrorSpy).toHaveBeenCalled();
     });
@@ -159,14 +144,13 @@ describe("RedisPlugin", () => {
             adapter,
             failureStrategy: "warn"
         });
-        plugin.install(appMock);
 
         const loggerWarnSpy = spyOn((plugin as any).logger, "warn").mockImplementation(() => { });
 
         // Mock adapter.connect to throw
         adapter.connect = mock(() => Promise.reject(new Error("Connection refused")));
 
-        await plugin.onPluginInit(); // Should not throw
+        await plugin.install(appMock); // Should not throw
 
         expect(loggerWarnSpy).toHaveBeenCalled();
     });
@@ -174,8 +158,7 @@ describe("RedisPlugin", () => {
     it("should disconnect on destroy", async () => {
         const adapter = new IoRedisAdapter("redis://localhost:6379");
         const plugin = new RedisPlugin({ adapter });
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN) as any;
         const quitSpy = spyOn(client, "quit");
@@ -188,15 +171,13 @@ describe("RedisPlugin", () => {
     it("should reuse existing connection if already connected", async () => {
         const adapter = new IoRedisAdapter("redis://localhost:6379");
         const plugin = new RedisPlugin({ adapter });
-        plugin.install(appMock);
-
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         // Spy on adapter.connect
         const connectSpy = spyOn(adapter, "connect");
 
-        // Call init again
-        await plugin.onPluginInit();
+        // Call install again
+        await plugin.install(appMock);
 
         expect(connectSpy).not.toHaveBeenCalled();
     });
@@ -207,8 +188,7 @@ describe("RedisPlugin", () => {
             adapter,
             serverless: true
         });
-        plugin.install(appMock);
-        await plugin.onPluginInit();
+        await plugin.install(appMock);
 
         const client = container.resolve(REDIS_CLIENT_TOKEN) as any;
         const quitSpy = spyOn(client, "quit");

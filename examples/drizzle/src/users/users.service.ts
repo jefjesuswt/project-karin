@@ -1,4 +1,3 @@
-
 import { Service } from "@project-karin/core";
 import type { LibSQLDatabase } from "drizzle-orm/libsql";
 import * as schema from "./users.schema";
@@ -6,6 +5,7 @@ import type { CreateUserDto } from "./dto/create-user.dto";
 import { InjectDrizzle } from "@project-karin/drizzle";
 import { InjectRedis } from "@project-karin/redis";
 import type { Redis } from "@upstash/redis";
+import { randomUUID } from "crypto";
 
 @Service()
 export class UsersService {
@@ -30,7 +30,10 @@ export class UsersService {
     }
 
     async create(data: CreateUserDto) {
-        const result = await this.db.insert(schema.users).values(data).returning();
+        const result = await this.db.insert(schema.users).values({
+            id: randomUUID(),
+            ...data
+        }).returning();
 
         // Invalidate cache
         await this.redis.del("users:all");
@@ -38,4 +41,3 @@ export class UsersService {
         return result[0];
     }
 }
-

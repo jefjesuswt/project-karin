@@ -8,14 +8,14 @@ export function generateUpdateDtoTemplate(name: string) {
   const baseKebab = toKebabCase(baseName);
   const basePascal = toPascalCase(baseName);
 
-  const createSchemaName = `Create${basePascal}Schema`;
+  const createDtoName = `Create${basePascal}Dto`;
   const importFile = `create-${baseKebab}.dto`;
 
   return `import { z } from "zod";
-import { ${createSchemaName} } from "./${importFile}";
+import { ${createDtoName} } from "./${importFile}";
 
-export const ${className}Schema = ${createSchemaName}.partial();
+export const ${className}Dto = ${createDtoName}.partial();
 
-export type ${className}Dto = z.infer<typeof ${className}Schema>;
+export type ${className}Dto = z.infer<typeof ${className}Dto>;
 `;
 }
