@@ -1,6 +1,6 @@
 {
   "name": "@project-karin/mongoose",
-  "version": "0.5.9",
+  "version": "0.5.10",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -17,7 +17,7 @@
     "mongoose": "^8.0.0"
   },
   "dependencies": {
-    "@project-karin/core": "^0.5.9",
+    "@project-karin/core": "^0.5.10",
     "mongoose": "^8.9.0",
     "reflect-metadata": "^0.2.2"
   },

@@ -1,5 +1,7 @@
 # @project-karin/config
 
+## 0.5.10
+
 ## 0.5.9
 
 ### Patch Changes

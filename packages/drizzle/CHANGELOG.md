@@ -1,5 +1,13 @@
 # @project-karin/drizzle
 
+## 0.5.10
+
+### Patch Changes
+
+- 0a80f35: Fix ZodValidationPipe to correctly receive metatype for @ZodDto validation and update documentation.
+- Updated dependencies [0a80f35]
+  - @project-karin/core@0.5.10
+
 ## 0.5.9
 
 ### Patch Changes
