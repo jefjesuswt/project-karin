@@ -1,5 +1,12 @@
 # @project-karin/platform-hono
 
+## 0.5.11
+
+### Patch Changes
+
+- Updated dependencies [6c40dab]
+  - @project-karin/core@0.5.11
+
 ## 0.5.10
 
 ### Patch Changes
