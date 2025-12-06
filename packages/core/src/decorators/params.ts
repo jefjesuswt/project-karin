@@ -55,7 +55,7 @@ export function createParamDecorator<T = any>(
 // Factory for standard HTTP parameter decorators (e.g. @Body(), @Query())
 const createNativeParamDecorator = (type: ParamType) => {
   return (
-    dataOrPipe?: string | PipeTransform | Type<PipeTransform>,
+    dataOrPipeOrType?: string | PipeTransform | Type<PipeTransform> | Type<any>,
     ...pipes: (PipeTransform | Type<PipeTransform>)[]
   ): ParameterDecorator => {
     return (target, propertyKey, parameterIndex) => {
@@ -64,16 +64,23 @@ const createNativeParamDecorator = (type: ParamType) => {
         Reflect.getMetadata(PARAMS_METADATA, target, propertyKey) || [];
 
       const paramTypes = Reflect.getMetadata("design:paramtypes", target, propertyKey);
-      const metatype = paramTypes ? paramTypes[parameterIndex] : undefined;
+      let metatype = paramTypes ? paramTypes[parameterIndex] : undefined;
 
       let data: string | undefined;
       const allPipes = [...pipes];
 
       // Handle optional data key: @Body('email') vs @Body()
-      if (typeof dataOrPipe === "string") {
-        data = dataOrPipe;
-      } else if (dataOrPipe) {
-        allPipes.unshift(dataOrPipe as any);
+      if (typeof dataOrPipeOrType === "string") {
+        data = dataOrPipeOrType;
+      } else if (
+        typeof dataOrPipeOrType === "function" &&
+        !dataOrPipeOrType.prototype?.transform // It's a class (DTO), not a Pipe class
+      ) {
+        // It's a DTO class passed explicitly (e.g. @Body(CreateDto))
+        metatype = dataOrPipeOrType;
+      } else if (dataOrPipeOrType) {
+        // It's a Pipe instance or Pipe class
+        allPipes.unshift(dataOrPipeOrType as any);
       }
 
       existingParameters.push({
