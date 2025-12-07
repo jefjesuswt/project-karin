@@ -1,5 +1,15 @@
 # @examples/cloudflare-workers
 
+## 0.0.5
+
+### Patch Changes
+
+- @project-karin/config@0.5.12
+- @project-karin/core@0.5.12
+- @project-karin/drizzle@0.5.12
+- @project-karin/platform-hono@0.5.12
+- @project-karin/redis@0.5.12
+
 ## 0.0.4
 
 ### Patch Changes

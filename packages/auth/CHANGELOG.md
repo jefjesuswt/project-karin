@@ -1,5 +1,13 @@
 # @project-karin/auth
 
+## 0.5.12
+
+### Patch Changes
+
+- cd28ce3: feat: allow lazy evaluation for JWT secret
+
+  Updated `JwtModuleOptions` to accept `secret` as `string | (() => string)`. This allows for lazy evaluation of the secret, which is particularly useful when using `ConfigPlugin` to load environment variables that might not be available at the time of module definition (e.g., in Cloudflare Workers).
+
 ## 0.5.11
 
 ## 0.5.10
