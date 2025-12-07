@@ -16,7 +16,7 @@ export interface JwtVerifyOptions {
 }
 
 export interface JwtModuleOptions {
-    secret: string;
+    secret: string | (() => string);
     signOptions?: JwtSignOptions;
     alg?: string; // Default: HS256
 }
@@ -27,7 +27,8 @@ export class JwtService {
     private alg: string;
 
     constructor(@inject(JWT_OPTIONS) private readonly options: JwtModuleOptions) {
-        this.secret = new TextEncoder().encode(options.secret);
+        const secretValue = typeof options.secret === 'function' ? options.secret() : options.secret;
+        this.secret = new TextEncoder().encode(secretValue);
         this.alg = options.alg || "HS256";
     }
 
