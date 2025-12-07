@@ -1,5 +1,16 @@
 # @examples/cloudflare-workers
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [a10a777]
+  - @project-karin/core@0.5.13
+  - @project-karin/config@0.5.13
+  - @project-karin/drizzle@0.5.13
+  - @project-karin/platform-hono@0.5.13
+  - @project-karin/redis@0.5.13
+
 ## 0.0.5
 
 ### Patch Changes
