@@ -7,7 +7,7 @@ export function UseGuards(
 ): MethodDecorator & ClassDecorator {
   return (
     target: any,
-    key?: string | symbol,
+    _key?: string | symbol,
     descriptor?: PropertyDescriptor
   ) => {
     if (descriptor) {
@@ -24,7 +24,7 @@ export function UsePipes(
 ): MethodDecorator & ClassDecorator {
   return (
     target: any,
-    key?: string | symbol,
+    _key?: string | symbol,
     descriptor?: PropertyDescriptor
   ) => {
     if (descriptor) {
@@ -32,6 +32,24 @@ export function UsePipes(
       return descriptor;
     }
     Reflect.defineMetadata(PIPES_METADATA, pipes, target);
+    return target;
+  };
+}
+
+export function SetMetadata<K = any, V = any>(
+  metadataKey: K,
+  metadataValue: V
+): MethodDecorator & ClassDecorator {
+  return (
+    target: any,
+    _key?: string | symbol,
+    descriptor?: PropertyDescriptor
+  ) => {
+    if (descriptor) {
+      Reflect.defineMetadata(metadataKey, metadataValue, descriptor.value);
+      return descriptor;
+    }
+    Reflect.defineMetadata(metadataKey, metadataValue, target);
     return target;
   };
 }
