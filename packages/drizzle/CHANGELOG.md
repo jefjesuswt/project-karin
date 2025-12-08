@@ -1,5 +1,12 @@
 # @project-karin/drizzle
 
+## 0.5.14
+
+### Patch Changes
+
+- Updated dependencies [fe1464c]
+  - @project-karin/core@0.5.14
+
 ## 0.5.13
 
 ### Patch Changes
