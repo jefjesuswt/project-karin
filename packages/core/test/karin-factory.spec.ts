@@ -224,6 +224,22 @@ describe("KarinFactory", () => {
       expect(app.getGlobalGuards()).toContain(mockGuard);
       expect(app.getGlobalPipes()).toContain(mockPipe);
     });
+
+    it("should instantiate manual providers", async () => {
+      let instantiated = false;
+      class TestProvider {
+        constructor() {
+          instantiated = true;
+        }
+      }
+
+      await KarinFactory.create(mockAdapter, {
+        scan: false,
+        providers: [TestProvider],
+      });
+
+      expect(instantiated).toBe(true);
+    });
   });
 
   describe("Initialization Order", () => {

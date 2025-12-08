@@ -20,6 +20,8 @@ export interface KarinFactoryOptions {
   scan?: boolean | string;
   cwd?: string;
   controllers?: KarinController[];
+
+  providers?: Type<any>[];
   strict?: boolean;
   plugins?: KarinPlugin[];
   globalFilters?: Array<ExceptionFilter | Type<ExceptionFilter>>;
@@ -73,7 +75,19 @@ export class KarinFactory {
         app.useGlobalPipes(...pipes);
       }
 
-      // 4. Register manual controllers
+      // 4. Register & Instantiate Providers
+      if (options.providers && options.providers.length > 0) {
+        this.logger.info(`Instantiating ${options.providers.length} manual providers`);
+        for (const ProviderClass of options.providers) {
+          if (isConstructor(ProviderClass)) {
+            // Resolving forces the constructor execution
+            // and thus, the strategy registration (if applicable)
+            DICache.resolve(ProviderClass);
+          }
+        }
+      }
+
+      // 5. Register manual controllers
       if (options.controllers && options.controllers.length > 0) {
         this.logger.info(
           `Registering ${options.controllers.length} manual controllers`
@@ -89,7 +103,7 @@ export class KarinFactory {
         }
       }
 
-      // 5. Auto-scan controllers (if enabled)
+      // 6. Auto-scan controllers (if enabled)
       if (options.scan !== false) {
         await this.scanControllers(
           root,
