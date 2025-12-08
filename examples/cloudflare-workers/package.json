@@ -1,5 +1,5 @@
 {
-    "name": "@examples/cloudflare-workers",
+    "name": "example-cloudflare-workers",
     "version": "0.0.6",
     "private": true,
     "type": "module",

@@ -17,6 +17,7 @@
     "karin-playground",
     "example-drizzle-turso",
     "karin-example-hono-middleware",
-    "karin-benchmark"
+    "karin-benchmark",
+    "example-cloudflare-workers"
   ]
 }
