@@ -1,5 +1,11 @@
 # @project-karin/core
 
+## 0.5.13
+
+### Patch Changes
+
+- a10a777: feat: export `SetMetadata` decorator to allow creating custom decorators
+
 ## 0.5.12
 
 ## 0.5.11

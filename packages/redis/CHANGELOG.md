@@ -1,5 +1,12 @@
 # @project-karin/redis
 
+## 0.5.13
+
+### Patch Changes
+
+- Updated dependencies [a10a777]
+  - @project-karin/core@0.5.13
+
 ## 0.5.12
 
 ### Patch Changes
