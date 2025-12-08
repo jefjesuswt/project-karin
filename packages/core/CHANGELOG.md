@@ -1,5 +1,11 @@
 # @project-karin/core
 
+## 0.5.14
+
+### Patch Changes
+
+- fe1464c: feat: add `providers` option to `KarinFactory` for manual instantiation of classes (services, strategies) at startup.
+
 ## 0.5.13
 
 ### Patch Changes
