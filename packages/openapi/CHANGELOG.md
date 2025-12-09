@@ -1,5 +1,12 @@
 # @project-karin/openapi
 
+## 0.5.15
+
+### Patch Changes
+
+- Updated dependencies [9fd33da]
+  - @project-karin/core@0.5.15
+
 ## 0.5.14
 
 ### Patch Changes
