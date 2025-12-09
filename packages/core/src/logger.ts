@@ -31,7 +31,7 @@ export class Logger {
   error(message: string, trace?: string) {
     this.print(LogLevel.ERROR, message, pc.red, "ERR ");
     if (trace && Logger.level <= LogLevel.ERROR) {
-      console.error(pc.dim(pc.red(trace))); // Trace también en rojo pero dim
+      console.error(pc.dim(pc.red(trace)));
     }
   }
 

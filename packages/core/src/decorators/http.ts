@@ -3,7 +3,7 @@ import { METHOD_METADATA, PATH_METADATA } from "./constants";
 
 
 const createMappingDecorator = (method: string) => (path: string = '/') => {
-  return (target: any, key: string, descriptor: PropertyDescriptor) => {
+  return (_target: any, _key: string | symbol, descriptor: PropertyDescriptor) => {
     Reflect.defineMetadata(PATH_METADATA, path, descriptor.value);
     Reflect.defineMetadata(METHOD_METADATA, method, descriptor.value);
     return descriptor;

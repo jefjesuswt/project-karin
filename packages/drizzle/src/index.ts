@@ -5,3 +5,4 @@ export * from "./adapters/libsql.adapter";
 export * from "./adapters/neon.adapter";
 export * from "./adapters/postgres.adapter";
 export * from "./adapters/mysql.adapter";
+export * from "./filters/drizzle-exception.filter";

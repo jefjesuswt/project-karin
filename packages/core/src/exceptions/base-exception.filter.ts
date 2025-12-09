@@ -7,7 +7,7 @@ import { Catch } from "../decorators/filters";
 export class BaseExceptionFilter implements ExceptionFilter {
   private logger = new Logger("ExceptionFilter");
 
-  catch(exception: unknown, host: ArgumentsHost) {
+  catch(exception: unknown, _host: ArgumentsHost) {
     let status = 500;
     let body: any = { message: "Internal Server Error" };
 

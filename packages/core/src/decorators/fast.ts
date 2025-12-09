@@ -3,8 +3,8 @@ import { FAST_ROUTE_METADATA } from "./constants";
 
 export function Fast(): MethodDecorator {
   return (
-    target: any,
-    propertyKey: string | symbol,
+    _target: any,
+    _propertyKey: string | symbol,
     descriptor: PropertyDescriptor
   ) => {
     Reflect.defineMetadata(FAST_ROUTE_METADATA, true, descriptor.value);

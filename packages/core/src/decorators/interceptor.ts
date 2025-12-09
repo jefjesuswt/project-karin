@@ -7,7 +7,7 @@ export function UseInterceptors(
 ): MethodDecorator & ClassDecorator {
   return (
     target: any,
-    key?: string | symbol,
+    _key?: string | symbol,
     descriptor?: PropertyDescriptor
   ) => {
     if (descriptor) {

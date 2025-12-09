@@ -32,7 +32,7 @@ export class RouteHandlerFactory {
 
 
   private createFastHandler(
-    app: KarinApplication,
+    _app: KarinApplication,
     compiled: CompiledRouteMetadata
   ) {
     const { boundHandler } = compiled;
@@ -40,7 +40,7 @@ export class RouteHandlerFactory {
   }
 
   private createOptimizedHandler(
-    app: KarinApplication,
+    _app: KarinApplication,
     ControllerClass: Type<any>,
     methodName: string,
     compiled: CompiledRouteMetadata
