@@ -3,7 +3,7 @@ import { join, dirname, basename, relative } from "path";
 import pc from "picocolors";
 import { spinner, note, confirm, isCancel, cancel } from "@clack/prompts";
 import { toKebabCase, removeSuffix, toSingular } from "../utils/formatting";
-import { findSrcDir } from "../utils/paths";
+import { PathUtils } from "../utils/path.utils";
 
 import {
   generateControllerTemplate,
@@ -11,6 +11,7 @@ import {
   generateEntityTemplate,
   generateGuardTemplate,
   generateFilterTemplate,
+
   generatePluginTemplate,
   generateDecoratorTemplate,
   generateCreateDtoTemplate,
@@ -37,7 +38,7 @@ export class GeneratorService {
     s.start(`Scaffolding ${type}...`);
 
     try {
-      const srcPath = findSrcDir(this.cwd);
+      const srcPath = PathUtils.findSrcDir(this.cwd);
 
       let cleanName = rawName;
       if (type !== "resource") {

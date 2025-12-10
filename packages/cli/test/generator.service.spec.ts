@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, spyOn, mock } from "bun:test";
 import { GeneratorService } from "../src/services/generator.service";
+import { PathUtils } from "../src/utils/path.utils";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -17,11 +18,7 @@ mock.module("@clack/prompts", () => {
     };
 });
 
-mock.module("../src/utils/paths", () => {
-    return {
-        findSrcDir: (cwd: string) => path.join(cwd, "src"),
-    };
-});
+
 
 describe("GeneratorService", () => {
     const cwd = "/test/project";
@@ -30,6 +27,7 @@ describe("GeneratorService", () => {
     let mkdirSyncSpy: any;
     let writeFileSyncSpy: any;
     let logSpy: any;
+    let findSrcDirSpy: any;
 
     beforeEach(() => {
         service = new GeneratorService(cwd, false);
@@ -38,6 +36,8 @@ describe("GeneratorService", () => {
         mkdirSyncSpy = spyOn(fs, "mkdirSync").mockImplementation(() => undefined);
         writeFileSyncSpy = spyOn(fs, "writeFileSync").mockImplementation(() => undefined);
         logSpy = spyOn(console, "log").mockImplementation(() => { });
+
+        findSrcDirSpy = spyOn(PathUtils, "findSrcDir").mockReturnValue(path.join(cwd, "src"));
     });
 
     afterEach(() => {
@@ -45,6 +45,7 @@ describe("GeneratorService", () => {
         mkdirSyncSpy.mockRestore();
         writeFileSyncSpy.mockRestore();
         logSpy.mockRestore();
+        findSrcDirSpy.mockRestore();
     });
 
     it("should generate a controller", async () => {

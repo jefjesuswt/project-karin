@@ -2,23 +2,25 @@
   "name": "project-karin-monorepo",
   "module": "index.ts",
   "type": "module",
+  "private": true,
   "workspaces": [
     "packages/*",
     "examples/*"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
   },
   "scripts": {
     "build": "bun scripts/build.ts",
     "prepublishOnly": "bun run build"
   },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
   "dependencies": {
     "@project-karin/mongoose": "workspace:*",
-    "@project-karin/redis": "workspace:*"
+    "@project-karin/redis": "workspace:*",
+    "picocolors": "^1.1.1",
+    "reflect-metadata": "^0.2.2",
+    "zod": "^4.1.13"
   }
 }
