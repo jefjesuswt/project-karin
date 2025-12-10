@@ -1,5 +1,12 @@
 # @project-karin/cli
 
+## 0.5.16
+
+### Patch Changes
+
+- 0e50710: - **@project-karin/redis**: Export usage of `UpstashRedis` (aliased from `@upstash/redis`'s `Redis` class) to allow consumers to use the Upstash client directly.
+  - **@project-karin/cli**: Refactor internal `paths` utility to `PathUtils` static class to improve testability and fix unit tests for source directory detection.
+
 ## 0.5.15
 
 ## 0.5.14
