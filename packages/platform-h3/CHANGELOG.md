@@ -1,5 +1,11 @@
 # @project-karin/platform-h3
 
+## 0.5.16
+
+### Patch Changes
+
+- @project-karin/core@0.5.16
+
 ## 0.5.15
 
 ### Patch Changes
